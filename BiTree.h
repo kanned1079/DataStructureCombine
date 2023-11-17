@@ -13,6 +13,7 @@
 #define DataType int
 #define QUEUE_SIZE_BiT 100
 
+
 //结构定义
 typedef struct BiTNode {
     DataType data;
@@ -117,47 +118,47 @@ int GetDeepth(BiTNode *root){
         return right + 1;
 }
 
-void initial_Queue_With_BiTNode(SqQueue *Q){
-    //Q = ( *)malloc(sizeof(SqQueue));
-    Q->base = (BiTNode *)malloc(sizeof(BiTNode) * QUEUE_SIZE_BiT);
-    Q->front = Q->rear = 0;
-}
 
-void SqQueue_En_With_BiTNode(SqQueue *Q, BiTNode value) {
-    if(isFull(Q)) {
-        printf("Queue is full.\n");
-        return;
-    }
-    //printf("%d", value);
-    *(Q->base + Q->rear) = value;
-    Q->rear = (Q->rear + 1) % QUEUE_SIZE;
-}
-BiTNode *SqQueue_De_With_BiTNode(SqQueue *Q) {
-    if (isEmpty(Q)) {
-        printf("Queue is empty.\n");
-        //return;
-    }
-    //*Data = *(Q->base + Q->front);
-    DataType res = *(Q->base + Q->front);
-    Q->front = (Q->front + 1) % QUEUE_SIZE;
-    return res;
-}
+////层次遍历二叉树
+//void layerTraverseBiTree(BiTNode *root){
+//    BiTNode *p;
+//    SqQueue *queue;
+//    queue = (BiTNode *) malloc(sizeof (BiTNode) * QUEUE_SIZE_BiT);
+//    initial_Queue(queue);
+//    SqQueue_En(queue, root);
+//    while ((p = SqQueue_De(queue) != NULL)){
+//        printf("%c", p->data);
+//        if(p->lchild)
+//            SqQueue_En(queue, p->lchild);
+//        if(p->rchild)
+//            SqQueue_En(queue, p->rchild);
+//    }
+//}
+//
 
-//层次遍历二叉树
-void layerTraverseBiTree(BiTNode *root){
-    BiTNode *p;
-    SqQueue *queue;
-    queue = (BiTNode *) malloc(sizeof (BiTNode) * QUEUE_SIZE_BiT);
-    initial_Queue(queue);
-    SqQueue_En(queue, root);
-    while ((p = SqQueue_De(queue) != NULL)){
-        printf("%c", p->data);
-        if(p->lchild)
-            SqQueue_En(queue, p->lchild);
-        if(p->rchild)
-            SqQueue_En(queue, p->rchild);
-    }
-
-
-}
-
+////供二叉树层次遍历使用的队列数据操作
+//void initial_Queue_With_BiTNode(SqQueue *Q){
+//    //Q = ( *)malloc(sizeof(SqQueue));
+//    Q->base = (BiTNode *)malloc(sizeof(BiTNode) * QUEUE_SIZE_BiT);
+//    Q->front = Q->rear = 0;
+//}
+//
+//void SqQueue_En_With_BiTNode(SqQueue *Q, BiTNode value) {
+//    if(isFull(Q)) {
+//        printf("Queue is full.\n");
+//        return;
+//    }
+//    //printf("%d", value);
+//    *(Q->base + Q->rear) = value;
+//    Q->rear = (Q->rear + 1) % QUEUE_SIZE;
+//}
+//BiTNode *SqQueue_De_With_BiTNode(SqQueue *Q) {
+//    if (isEmpty(Q)) {
+//        printf("Queue is empty.\n");
+//        //return;
+//    }
+//    //*Data = *(Q->base + Q->front);
+//    DataType res = *(Q->base + Q->front);
+//    Q->front = (Q->front + 1) % QUEUE_SIZE;
+//    return res;
+//}

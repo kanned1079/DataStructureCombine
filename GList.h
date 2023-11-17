@@ -28,10 +28,8 @@ typedef struct GLNode {
  不会
 */
 
-
 /*
 有错
-
 //求广义表长度
 int GetGListLength(GLNode *L){
     GLNode *p;
@@ -55,4 +53,20 @@ int GetGListDeepth(GLNode *L){
     return max+1;
 }
 
+//遍历广义表
+void TraverseGList(GLNode *L){
+    GLNode *p;
+    for(p = L; p != NULL; p = p->next){
+        if(p->tag == ATOM){
+            printf("%c ", p->UNION.child);
+        } else{
+            putchar('(');
+            TraverseGList(p->UNION.child);
+            putchar(')');
+        }
+    }
+}
+
+
 */
+
