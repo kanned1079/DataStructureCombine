@@ -4,13 +4,17 @@
 #include "SqList.h"
 #include "Stack.h"
 #include "Strings.h"
+#include "Queue.h"
+#include "GList.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
     void oeprate_SqList();
     void operate_Stack();
     void operate_Strings();
+    void operate_Queue();
     void operate_BiTree();
+    void operate_GList();
 
     printf("数据结构： \n"
            " ├──顺序表 [0]\n"
@@ -29,9 +33,11 @@ int main(int argc, char *argv[]) {
            " │  └─KMP算法模式匹配\n"
            " ├──队列 [5]\n"
            " │  └─杨辉三角形\n"
-           " ├──树 [6]\n");
+           " ├──广义表 [6]\n"
+           " ├──树 [7]\n");
 
     int tag;
+    restart:
     printf("\033[1;35m选择使用的数据结构：\033[0m");
     scanf("%d", &tag);
     switch (tag) {
@@ -45,9 +51,14 @@ int main(int argc, char *argv[]) {
             break;
         case 4: operate_Strings();
             break;
-        case 5:
+        case 5: operate_Queue();
             break;
-        case 6: operate_BiTree();
+        case 6: operate_GList();
+            break;
+        case 7: operate_GList();
+        default:
+            printf("\033[1;31mERROR\n\033[0m");
+            goto restart;
             break;
     }
     return 0;
@@ -211,6 +222,26 @@ void operate_Strings(){
     }
 }
 
+void operate_Queue(){
+    printf("----------------------\n");
+    SqQueue *queue=(SqQueue *)malloc(sizeof(SqQueue));
+    initial_Queue(queue);
+    printf("输入三角的行数：");
+
+    int lines = 0;
+    scanf("%d", &lines);
+    DataType result[QUEUE_SIZE];
+    printf("----------------------\n");
+    generate_YanghuiTriangle(queue, lines-1, result);
+    free(queue->base);
+    free(queue);
+}
+
 void operate_BiTree(){
+
+}
+
+void operate_GList(){
+    GLNode *Glist;
 
 }

@@ -10,4 +10,6 @@ add_executable(dataStruct main.c
         Stack.h
         Strings.h
         BiTree.h
+        Queue.h
+        GList.h
 )
