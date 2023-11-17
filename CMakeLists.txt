@@ -9,4 +9,5 @@ add_executable(dataStruct main.c
         SqList.h
         Stack.h
         Strings.h
+        BiTree.h
 )

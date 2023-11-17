@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
     void oeprate_SqList();
     void operate_Stack();
     void operate_Strings();
+    void operate_BiTree();
 
     printf("数据结构： \n"
            " ├──顺序表 [0]\n"
@@ -26,8 +27,10 @@ int main(int argc, char *argv[]) {
            " │  ├─串比大小\n"
            " │  ├─BF算法模式匹配\n"
            " │  └─KMP算法模式匹配\n"
-           " └──队列 [5]\n"
-           "    └─杨辉三角形\n");
+           " ├──队列 [5]\n"
+           " │  └─杨辉三角形\n"
+           " ├──树 [6]\n");
+
     int tag;
     printf("\033[1;35m选择使用的数据结构：\033[0m");
     scanf("%d", &tag);
@@ -41,6 +44,11 @@ int main(int argc, char *argv[]) {
         case 3: operate_Stack();
             break;
         case 4: operate_Strings();
+            break;
+        case 5:
+            break;
+        case 6: operate_BiTree();
+            break;
     }
     return 0;
 }
@@ -201,4 +209,8 @@ void operate_Strings(){
         }
             break;
     }
+}
+
+void operate_BiTree(){
+
 }
