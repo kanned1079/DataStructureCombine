@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "stdio.h"
 #include "stdlib.h"
 #include "LinkList.h"
 #include "SqList.h"
@@ -6,6 +6,7 @@
 #include "Strings.h"
 #include "Queue.h"
 #include "GList.h"
+#include "BiTree.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
@@ -56,6 +57,7 @@ int main(int argc, char *argv[]) {
         case 6: operate_GList();
             break;
         case 7: operate_GList();
+            break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
             goto restart;
@@ -238,6 +240,22 @@ void operate_Queue(){
 }
 
 void operate_BiTree(){
+// 示例的先序遍历和中序遍历结果
+    char preOrder[] = {'A', 'B', 'D', 'E', 'C', 'F', 'G'};
+    char inOrder[] = {'D', 'B', 'E', 'A', 'F', 'C', 'G'};
+
+    int n = sizeof(preOrder) / sizeof(preOrder[0]);
+    int preIndex = 0; // 用于跟踪先序遍历数组中的位置
+
+    // 使用先序和中序遍历创建二叉树
+    BiTNode *root = premid(preOrder, inOrder, 0, 0, n - 1);
+
+    // 调用层次遍历函数输出
+    printf("层次遍历结果：");
+    LevelOrder(root);
+
+    // 释放二叉树内存
+    freeBiTree(root);
 
 }
 

@@ -9,10 +9,9 @@
 
 #include "stdio.h"
 #include "stdlib.h"
-#include "Queue.h"
+//#include "Queue.h"
 #define DataType int
-#define QUEUE_SIZE_BiT 100
-
+#define MAX_QUEUE_SIZE 100
 
 //结构定义
 typedef struct BiTNode {
@@ -62,17 +61,17 @@ void PreOrder(BiTNode *root){
 //中序遍历二叉树
 void InOrder(BiTNode *root){
     if(root){
-        PreOrder(root->lchild);
+        InOrder(root->lchild);
         printf("%d ", root->data);
-        PreOrder(root->rchild);
+        InOrder(root->rchild);
     }
 }
 
 //后序遍历二叉树
 void PosOrder(BiTNode *root){
     if(root){
-        PreOrder(root->lchild);
-        PreOrder(root->rchild);
+        PosOrder(root->lchild);
+        PosOrder(root->rchild);
         printf("%d ", root->data);
     }
 }
@@ -116,6 +115,85 @@ int GetDeepth(BiTNode *root){
         return left + 1;
     else
         return right + 1;
+}
+
+//以下是AI写的层次遍历二叉树 有逻辑错误
+//包含一个专用队列和层次遍历函数
+
+// 简单队列结构
+typedef struct {
+    BiTNode *array[MAX_QUEUE_SIZE];
+    int front, rear;
+} Queue;
+
+// 初始化队列
+void initQueue(Queue *queue) {
+    queue->front = -1;
+    queue->rear = -1;
+}
+
+// 判断队列是否为空
+int queueIsEmpty(Queue *queue) {
+    return (queue->front == -1);
+}
+
+// 入队
+void enqueue(Queue *queue, BiTNode *node) {
+    if (queue->rear == MAX_QUEUE_SIZE - 1) {
+        printf("Queue is full\n");
+        return;
+    }
+
+    // 队列为空时，需要更新front
+    if (queue->front == -1)
+        queue->front = 0;
+
+    // 入队
+    queue->array[++queue->rear] = node;
+}
+
+// 出队
+BiTNode* dequeue(Queue *queue) {
+    if (queue->front == -1) {
+        printf("Queue is empty\n");
+        return NULL;
+    }
+
+    // 出队
+    BiTNode *node = queue->array[queue->front++];
+
+    // 队列为空时，重置front和rear
+    if (queue->front > queue->rear)
+        initQueue(queue);
+
+    return node;
+}
+
+
+// 层次遍历二叉树
+void LevelOrder(BiTNode *root) {
+    if (root == NULL)
+        return;
+
+    // 创建一个队列，用于存储待访问的节点
+    Queue queue;
+    initQueue(&queue);
+
+    // 将根节点入队
+    enqueue(&queue, root);
+
+    // 循环处理队列中的节点，直到队列为空
+    while (!queueIsEmpty(&queue)) {
+        // 出队并访问当前节点
+        BiTNode *current = dequeue(&queue);
+        printf("%d ", current->data);
+
+        // 将左右子节点入队
+        if (current->lchild != NULL)
+            enqueue(&queue, current->lchild);
+        if (current->rchild != NULL)
+            enqueue(&queue, current->rchild);
+    }
 }
 
 
