@@ -12,4 +12,5 @@ add_executable(dataStruct main.c
         BiTree.h
         Queue.h
         GList.h
+        AppleQueue.h
 )

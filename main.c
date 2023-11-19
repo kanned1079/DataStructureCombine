@@ -35,7 +35,15 @@ int main(int argc, char *argv[]) {
            " ├──队列 [5]\n"
            " │  └─杨辉三角形\n"
            " ├──广义表 [6]\n"
-           " ├──树 [7]\n");
+           " ├──树 [7]\n"
+           " │  ├─根据先序序列和中序序列生成二叉树\n"
+           " │  ├─带空指针的先序序列生成一棵二叉树\n"
+           " │  ├─先序遍历\n"
+           " │  ├─中序遍历\n"
+           " │  ├─后序遍历\n"
+           " │  └─使用队列进行层次遍历\n"
+           " │  \n"
+           " └─未完待续\n");
 
     int tag;
     restart:
@@ -56,7 +64,7 @@ int main(int argc, char *argv[]) {
             break;
         case 6: operate_GList();
             break;
-        case 7: operate_GList();
+        case 7: operate_BiTree();
             break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
@@ -239,27 +247,59 @@ void operate_Queue(){
     free(queue);
 }
 
-void operate_BiTree(){
-// 示例的先序遍历和中序遍历结果
-    char preOrder[] = {'A', 'B', 'D', 'E', 'C', 'F', 'G'};
-    char inOrder[] = {'D', 'B', 'E', 'A', 'F', 'C', 'G'};
-
-    int n = sizeof(preOrder) / sizeof(preOrder[0]);
-    int preIndex = 0; // 用于跟踪先序遍历数组中的位置
-
-    // 使用先序和中序遍历创建二叉树
-    BiTNode *root = premid(preOrder, inOrder, 0, 0, n - 1);
-
-    // 调用层次遍历函数输出
-    printf("层次遍历结果：");
-    LevelOrder(root);
-
-    // 释放二叉树内存
-    freeBiTree(root);
-
-}
-
 void operate_GList(){
     GLNode *Glist;
 
 }
+
+void operate_BiTree(){
+    printf("----------------------\n"
+           "创建二叉树的方法\n"
+           " ├─根据先序序列和中序序列生成二叉树 [0]\n"
+           " └─带空指针的先序序列生成一棵二叉树 [1]\n");
+    int tag;
+    printf("----------------------\n"
+           "\033[1;35m选择创建方法：\033[0m");
+    scanf("%d", &tag);
+    printf("----------------------\n");
+    char preorder[] = "ABDECF";
+    char inorder[] = "DBEACF";
+    char Npreorder[] = "AB*D**C**";
+    BiTNode *root;
+    switch (tag) {
+        case 0:{
+            // 提供先序和中序遍历序列
+            printf("使用的先序序列：%s\n", preorder);
+            printf("输入中序序列：%s\n"
+                   "----------------------\n", inorder);
+            // 定义索引变量
+            int preIndex = 0;
+            // 创建二叉树
+            root = premid(preorder, inorder, 0, 0, 6, &preIndex);
+        }
+            break;
+        case 1:
+        {
+            printf("使用的先序序列：%s\n"
+                   "----------------------\n", Npreorder);
+            // 定义索引变量
+            int preIndex = 0;
+            // 创建二叉树
+            root = BiT_Create(Npreorder, &preIndex);
+        }
+    }
+    // 输出先序遍历结果
+    printf("先序遍历结果: ");
+    PreOrder(root);
+    printf("\n中序遍历结果: ");
+    InOrder(root);
+    printf("\n后序遍历结果: ");
+    PosOrder(root);
+    printf("\n层次遍历结果: ");
+    LevelOrder(root);
+    printf("\n");
+
+    // 释放二叉树内存
+    freeBiTree(root);
+}
+
