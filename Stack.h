@@ -47,7 +47,7 @@ DataType pop_SqStack(SqStack *stack) {
     return *(stack->top);
 }
 
-void  decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
+void decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
     while (val){
         int remainder = val % BaseNumber;
         push_SqStack(stack, remainder);
