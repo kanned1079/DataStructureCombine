@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
             break;
         case 1: operate_LinkList();
             break;
-        case 2:
+        case 2: printf("不会\n");
             break;
         case 3: operate_Stack();
             break;
@@ -70,14 +70,17 @@ int main(int argc, char *argv[]) {
             goto restart;
             break;
     }
+
     printf("----------------------\n"
-           "返回主菜单吗(1/0)：");
-    int maintag = 0;
+           "返回一级菜单(1)\n"
+           "结束程序(0)：");
+    int maintag = 1;
     scanf("%d", &maintag);
-    if(maintag == 0)
-        return 0;
-    else
+    if(maintag == 1)
         goto outset;
+    else
+        return 0;
+
 
     //return 0;
 }
