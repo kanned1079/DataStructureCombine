@@ -266,8 +266,10 @@ void operate_BiTree(){
            " ├─根据先序序列和中序序列生成二叉树 [0]\n"
            " └─带空指针的先序序列生成一棵二叉树 [1]\n");
     int tag;
-    printf("----------------------\n"
-           "\033[1;35m选择创建方法：\033[0m");
+
+    printf("----------------------\n");
+    chooseL1:
+    printf("\033[1;35m选择创建方法：\033[0m");
     scanf("%d", &tag);
     printf("----------------------\n");
     char preorder[] = "ABDECF";
@@ -278,8 +280,7 @@ void operate_BiTree(){
         case 0:{
             // 提供先序和中序遍历序列
             printf("使用的先序序列：%s\n", preorder);
-            printf("输入中序序列：%s\n"
-                   "----------------------\n", inorder);
+            printf("输入中序序列：%s\n", inorder);
             // 定义索引变量
             int preIndex = 0;
             // 创建二叉树
@@ -288,13 +289,15 @@ void operate_BiTree(){
             break;
         case 1:
         {
-            printf("使用的先序序列：%s\n"
-                   "----------------------\n", Npreorder);
+            printf("使用的先序序列：%s\n", Npreorder);
             // 定义索引变量
             int preIndex = 0;
             // 创建二叉树
             root = BiT_Create(Npreorder, &preIndex);
         }
+            break;
+        default:
+            goto chooseL1;
     }
     printf("----------------------\n"
            "二叉树操作\n"
@@ -302,7 +305,7 @@ void operate_BiTree(){
            " ├─统计节点个数 [1]\n"
            " ├─统计叶子节点个数 [2]\n"
            " ├─获取二叉树深度 [3]\n"
-           " ├─获取二叉树深度 [4]\n"
+           " ├─释放空间 [4]\n"
            " └─所有操作 [5]\n"
            "----------------------\n");
     choose2:
@@ -330,9 +333,10 @@ void operate_BiTree(){
         case 3:
             printf("二叉树深度: %d\n", GetDeepth(root));
             break;
-        case 4:
+        case 4:{
             freeBiTree(root);
             printf("Done.\n");
+        }
             break;
         case 5:{
             printf("先序遍历结果: ");
