@@ -53,7 +53,6 @@ BiTNode *premid(char pre[], char mid[], int pre_i, int mid_i, int n, int *preInd
     return root;
 }
 
-
 //先序遍历二叉树
 void PreOrder(BiTNode *root){
     if(root){

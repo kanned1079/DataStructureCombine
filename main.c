@@ -44,7 +44,6 @@ int main(int argc, char *argv[]) {
            " │  └─使用队列进行层次遍历\n"
            " │  \n"
            " └─未完待续\n");
-
     int tag;
     restart:
     printf("\033[1;35m选择使用的数据结构：\033[0m");
