@@ -191,6 +191,18 @@ void LevelOrder(BiTNode *root) {
     }
 }
 
+//交换二叉树左右子数
+void ExchangeOffspringTrees(BiTNode *root){
+    BiTNode *temporary;
+    if(root == NULL)
+        return;
+    temporary = root->rchild;
+    root->rchild = root->lchild;
+    root->lchild = temporary;
+    ExchangeOffspringTrees(root->lchild);
+    ExchangeOffspringTrees(root->rchild);
+}
+
 //vision2
 //#include "stdio.h"
 //#include "stdlib.h"

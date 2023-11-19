@@ -309,7 +309,8 @@ void operate_BiTree(){
            " ├─统计叶子节点个数 [2]\n"
            " ├─获取二叉树深度 [3]\n"
            " ├─释放空间 [4]\n"
-           " └─所有操作 [5]\n"
+           " ├─交换左右子数 [5]\n"
+           " └─操作所有 [6]\n"
            "----------------------\n");
     choose2:
     printf("选取操作：");
@@ -341,7 +342,17 @@ void operate_BiTree(){
             printf("Done.\n");
         }
             break;
-        case 5:{
+        case 5: {
+            //源二叉树的中序遍历
+            printf("源二叉树层次遍历结果: ");
+            LevelOrder(root);
+            ExchangeOffspringTrees(root);
+            printf("\n交换后二叉树层次遍历结果: ");
+            LevelOrder(root);
+
+        }
+            break;
+        case 6: {
             printf("先序遍历结果: ");
             PreOrder(root);
             printf("\n中序遍历结果: ");
@@ -366,4 +377,3 @@ void operate_BiTree(){
     // 释放二叉树内存
     freeBiTree(root);
 }
-
