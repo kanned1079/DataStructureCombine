@@ -10,13 +10,13 @@
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
-    void oeprate_SqList();
+    void operate_SqList();
     void operate_Stack();
     void operate_Strings();
     void operate_Queue();
     void operate_BiTree();
     void operate_GList();
-
+    outset:
     printf("数据结构： \n"
            " ├──顺序表 [0]\n"
            " │  └─合并两个顺序表\n"
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     printf("\033[1;35m选择使用的数据结构：\033[0m");
     scanf("%d", &tag);
     switch (tag) {
-        case 0: oeprate_SqList();
+        case 0: operate_SqList();
             break;
         case 1: operate_LinkList();
             break;
@@ -70,10 +70,19 @@ int main(int argc, char *argv[]) {
             goto restart;
             break;
     }
-    return 0;
+    printf("----------------------\n"
+           "返回主菜单吗(1/0)：");
+    int maintag = 0;
+    scanf("%d", &maintag);
+    if(maintag == 0)
+        return 0;
+    else
+        goto outset;
+
+    //return 0;
 }
 
-void oeprate_SqList(){
+void operate_SqList(){
     printf("----------------------\n"
            "合并两个顺序表\n");
     SqList sq1, sq2, sq3;
@@ -287,15 +296,46 @@ void operate_BiTree(){
             root = BiT_Create(Npreorder, &preIndex);
         }
     }
-    // 输出先序遍历结果
-    printf("先序遍历结果: ");
-    PreOrder(root);
-    printf("\n中序遍历结果: ");
-    InOrder(root);
-    printf("\n后序遍历结果: ");
-    PosOrder(root);
-    printf("\n层次遍历结果: ");
-    LevelOrder(root);
+    printf("----------------------\n"
+           "二叉树操作\n"
+           " ├─四种输出 [0]\n"
+           " ├─统计节点个数 [1]\n"
+           " ├─统计叶子节点个数 [2]\n"
+           " ├─获取二叉树深度 [3]\n"
+           " └─释放所有节点空间 [4]\n"
+           "----------------------\n");
+    choose2:
+    printf("选取操作：");
+    scanf("%d", &tag);
+    printf("----------------------\n");
+    switch (tag) {
+        case 0:{
+            printf("先序遍历结果: ");
+            PreOrder(root);
+            printf("\n中序遍历结果: ");
+            InOrder(root);
+            printf("\n后序遍历结果: ");
+            PosOrder(root);
+            printf("\n层次遍历结果: ");
+            LevelOrder(root);
+        }
+            break;
+        case 1:
+            printf("节点个数: %d\n", CountBiTreeNode(root));
+            break;
+        case 2:
+            printf("叶子节点个数: %d\n", CountLeafNode(root));
+            break;
+        case 3:
+            printf("二叉树深度: %d\n", GetDeepth(root));
+            break;
+        case 4:
+            freeBiTree(root);
+            printf("Done.\n");
+            break;
+        default:
+            goto choose2;
+    }
     printf("\n");
 
     // 释放二叉树内存
