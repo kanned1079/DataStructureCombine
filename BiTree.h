@@ -152,7 +152,6 @@ void enqueue(Queue *queue, BiTNode *node) {
     // 队列为空时，需要更新front
     if (queue->front == -1)
         queue->front = 0;
-
     // 入队
     queue->array[++queue->rear] = node;
 }
@@ -163,41 +162,32 @@ BiTNode* dequeue(Queue *queue) {
         printf("Queue is empty\n");
         return NULL;
     }
-
     // 出队
     BiTNode *node = queue->array[queue->front++];
-
     // 队列为空时，重置front和rear
     if (queue->front > queue->rear)
         initQueue(queue);
-
     return node;
 }
-
 
 // 层次遍历二叉树
 void LevelOrder(BiTNode *root) {
     if (root == NULL)
         return;
-
     // 创建一个队列，用于存储待访问的节点
     Queue queue;
     initQueue(&queue);
-
     // 将根节点入队
     enqueue(&queue, root);
-
     // 循环处理队列中的节点，直到队列为空
     while (!queueIsEmpty(&queue)) {
         // 出队并访问当前节点
         BiTNode *current = dequeue(&queue);
-
         // 将左右子节点入队
         if (current->lchild != NULL)
             enqueue(&queue, current->lchild);
         if (current->rchild != NULL)
             enqueue(&queue, current->rchild);
-
         printf("%c ", current->data);
     }
 }
