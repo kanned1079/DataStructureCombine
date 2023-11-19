@@ -302,7 +302,8 @@ void operate_BiTree(){
            " ├─统计节点个数 [1]\n"
            " ├─统计叶子节点个数 [2]\n"
            " ├─获取二叉树深度 [3]\n"
-           " └─释放所有节点空间 [4]\n"
+           " ├─获取二叉树深度 [4]\n"
+           " └─所有操作 [5]\n"
            "----------------------\n");
     choose2:
     printf("选取操作：");
@@ -332,6 +333,23 @@ void operate_BiTree(){
         case 4:
             freeBiTree(root);
             printf("Done.\n");
+            break;
+        case 5:{
+            printf("先序遍历结果: ");
+            PreOrder(root);
+            printf("\n中序遍历结果: ");
+            InOrder(root);
+            printf("\n后序遍历结果: ");
+            PosOrder(root);
+            printf("\n层次遍历结果: ");
+            LevelOrder(root);
+
+            printf("\n节点个数: %d\n", CountBiTreeNode(root));
+
+            printf("叶子节点个数: %d\n", CountLeafNode(root));
+
+            printf("二叉树深度: %d\n", GetDeepth(root));
+        }
             break;
         default:
             goto choose2;
