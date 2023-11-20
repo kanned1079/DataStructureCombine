@@ -291,7 +291,9 @@ void operate_Queue(){
 void operate_GList(){
     char input[] = "(a (b c) d)";
     int index = 0;
-
+    printf("----------------------\n"
+           "创建广义表：%s\n"
+           "----------------------\n", input);
     GLNode *root = Glist_Create(input, &index);
 
     // 输出广义表
