@@ -203,6 +203,16 @@ void ExchangeOffspringTrees(BiTNode *root){
     ExchangeOffspringTrees(root->rchild);
 }
 
+void showExchange(BiTNode *root){
+    //源二叉树的中序遍历
+    printf("源二叉树层次遍历结果: ");
+    LevelOrder(root);
+    ExchangeOffspringTrees(root);
+    printf("\n交换后二叉树层次遍历结果: ");
+    LevelOrder(root);
+
+}
+
 //vision2
 //#include "stdio.h"
 //#include "stdlib.h"

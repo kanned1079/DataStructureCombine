@@ -14,26 +14,63 @@
 
 //广义表结构定义
 typedef enum {ATOM, LIST} ElemTag;
+typedef enum {END, LP, RP, ATOMFLAG } ElemFlag;
 typedef struct GLNode {
     ElemTag tag;
     union {
         Atomtype atom;
         struct GLNode *child;
-    };
+    } UNION;
     struct GLNode *next;
 } GLNode;
 
 //创建广义表的算法
-/*
- 不会
-*/
+ElemFlag GetElem(char str[], int *pi, Atomtype *pe){
+    while (str[*pi] == ' ')
+        (*pi)++;
+    if(str[*pi] == '\0')
+        return (END);
+    if(str[*pi] == '('){
+        (*pi)++;
+        return (LP);
+    }
+    if(str[*pi] == ')'){
+        (*pi)++;
+        return (RP);
+    }
+    *pe = str[*pi];
+    (*pi)++;
+    return ATOMFLAG;
+}
 
-/*
-有错
+GLNode *Glist_Create(char str[], int *pi){
+    GLNode *p;
+    Atomtype e;
+    switch (GetElem(str, pi, &e)){
+        case ATOMFLAG:{
+            p = (GLNode *) malloc(sizeof (GLNode));
+            p->tag = ATOM;
+            p->UNION.atom = e;
+            p->next = Glist_Create(str, pi);
+            return p;
+        }
+        case LP:{
+            p = (GLNode *) malloc(sizeof (GLNode));
+            p->tag = LIST;
+            p->UNION.child = Glist_Create(str, pi);
+            p->next = Glist_Create(str, pi);
+            return p;
+        }
+        case RP: return NULL;
+        case END: return NULL;
+    }
+}
+
 //求广义表长度
 int GetGListLength(GLNode *L){
     GLNode *p;
     int length = 0;
+    if(L->tag == LIST)
     for(p = L->UNION.child; p; p = p->next)
         length++;
     return length;
@@ -67,6 +104,13 @@ void TraverseGList(GLNode *L){
     }
 }
 
+// 释放广义表内存
+void FreeGList(GLNode *L) {
+    if (L != NULL) {
+        FreeGList(L->UNION.child);
+        FreeGList(L->next);
+        free(L);
+    }
+}
 
-*/
 

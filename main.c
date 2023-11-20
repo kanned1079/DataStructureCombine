@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "LinkList.h"
+#include "DuNode.h"
 #include "SqList.h"
 #include "Stack.h"
 #include "Strings.h"
@@ -10,6 +11,7 @@
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
+    void operate_DuLinkList();
     void operate_SqList();
     void operate_Stack();
     void operate_Strings();
@@ -31,18 +33,24 @@ int main(int argc, char *argv[]) {
            " │  ├─求串长度 myStrlen\n"
            " │  ├─串比大小 myStrcmp\n"
            " │  ├─串连接 myConcat\n"
-           " │  ├─BF算法模式匹配 BF_Search\n"
-           " │  └─KMP算法模式匹配 KMP_Search\n"
+           " │  └─模式匹配\n"
+           " │    ├─BF算法 BF_Search\n"
+           " │    └─KMP算法 KMP_Search\n"
            " ├──队列 [5]\n"
            " │  └─杨辉三角形 generate_YanghuiTriangle\n"
            " ├──广义表 [6]\n"
+           " │  ├─求广义表长度 GetGListLength\n"
+           " │  ├─求广义表深度 GetGListDeepth\n"
+           " │  └─遍历广义表 TraverseGList\n"
            " ├──树 [7]\n"
-           " │  ├─根据先序序列和中序序列生成二叉树 premid\n"
-           " │  ├─带空指针的先序序列生成一棵二叉树 BiT_Create\n"
-           " │  ├─先序遍历 PreOrder\n"
-           " │  ├─中序遍历 InOrder\n"
-           " │  ├─后序遍历 PosOrder\n"
-           " │  └─使用队列进行层次遍历 CountBiTreeNode\n"
+           " │  ├─创建树\n"
+           " │  │  ├─根据先序序列和中序序列生成二叉树 premid\n"
+           " │  │  └─带空指针的先序序列生成一棵二叉树 BiT_Create\n"
+           " │  └─遍历\n"
+           " │    ├─先序遍历 PreOrder\n"
+           " │    ├─中序遍历 InOrder\n"
+           " │    ├─后序遍历 PosOrder\n"
+           " │    └─使用队列进行层次遍历 CountBiTreeNode\n"
            " │  \n"
            " └─未完待续\n");
     int tag;
@@ -54,7 +62,7 @@ int main(int argc, char *argv[]) {
             break;
         case 1: operate_LinkList();
             break;
-        case 2: printf("不会\n");
+        case 2: operate_DuLinkList();
             break;
         case 3: operate_Stack();
             break;
@@ -153,6 +161,30 @@ void operate_LinkList(){
         L = reverseLinkList(L);
         traverse_Node(L);
     }
+}
+
+void operate_DuLinkList(){
+    // 创建双向链表节点p和q
+    DuNode *p = (DuNode *)malloc(sizeof(DuNode));
+    DuNode *q = (DuNode *)malloc(sizeof(DuNode));
+    if (p == NULL || q == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(1);
+    }
+    p->data = 1;
+    q->data = 3;
+
+    printf("----------------------\n在节点p和节点q之间插入新节点\n");
+    // 在节点p和节点q之间插入新节点
+    insertNodeBetween(p, q, 2);
+
+    // 打印链表
+    printf("Linked list: %d <-> %d <-> %d\n", p->data, p->next->data, p->next->next->data);
+
+    // 释放内存
+    free(p->next);
+    free(p);
+    free(q);
 }
 
 void operate_Stack(){
@@ -257,7 +289,20 @@ void operate_Queue(){
 }
 
 void operate_GList(){
-    GLNode *Glist;
+    char input[] = "(a (b c) d)";
+    int index = 0;
+
+    GLNode *root = Glist_Create(input, &index);
+
+    // 输出广义表
+    printf("广义表长度: %d\n", GetGListLength(root));
+    printf("广义表深度: %d\n", GetGListDeepth(root));
+    printf("遍历广义表: ");
+    TraverseGList(root);
+    putchar('\n');
+
+    // 释放广义表内存
+    FreeGList(root);
 
 }
 
@@ -307,7 +352,7 @@ void operate_BiTree(){
            " ├─统计叶子节点个数 [2]\n"
            " ├─获取二叉树深度 [3]\n"
            " ├─释放空间 [4]\n"
-           " ├─交换左右子数 [5]\n"
+           " ├─交换左右子树 [5]\n"
            " └─操作所有 [6]\n"
            "----------------------\n");
     choose2:
@@ -341,13 +386,12 @@ void operate_BiTree(){
         }
             break;
         case 5: {
-            //源二叉树的中序遍历
-            printf("源二叉树层次遍历结果: ");
-            LevelOrder(root);
-            ExchangeOffspringTrees(root);
-            printf("\n交换后二叉树层次遍历结果: ");
-            LevelOrder(root);
-
+//            printf("源二叉树层次遍历结果: ");
+//            LevelOrder(root);
+//            ExchangeOffspringTrees(root);
+//            printf("\n交换后二叉树层次遍历结果: ");
+//            LevelOrder(root);
+            showExchange(root);
         }
             break;
         case 6: {
@@ -365,6 +409,7 @@ void operate_BiTree(){
             printf("叶子节点个数: %d\n", CountLeafNode(root));
 
             printf("二叉树深度: %d\n", GetDeepth(root));
+            showExchange(root);
         }
             break;
         default:
