@@ -29,7 +29,7 @@ SqStack *initial_Stack(){
 //入棧操作
 void push_SqStack(SqStack *stack, DataType value){
     if(stack->top - stack->base >= stack->stackSize){
-        stack->base = (DataType *) malloc(sizeof (DataType) * INCREASEMENT);
+        stack->base = (DataType *) realloc(stack->base, sizeof (DataType) * INCREASEMENT);
         stack->top  = stack->base + stack->stackSize;
         stack->stackSize += INCREASEMENT;
     }
@@ -43,7 +43,7 @@ DataType pop_SqStack(SqStack *stack) {
         printf("Stack is Empty.\n");
         return (EXIT_FAILURE);
     }
-    *stack->top--;
+                                       stack->top--;
     return *(stack->top);
 }
 
