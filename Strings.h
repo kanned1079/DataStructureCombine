@@ -14,6 +14,7 @@
 
 typedef char String[MAXSIZE];
 
+//获取串长度
 int myStrlen(String string){
     int length = 0;
     while (string[length] != '\0'){
@@ -22,6 +23,7 @@ int myStrlen(String string){
     return length;
 }
 
+//连接两个串
 void myConcat(String string1, String string2){
     int str1_length = myStrlen(string1), str2_length = myStrlen(string2);
     int sq;
@@ -31,6 +33,7 @@ void myConcat(String string1, String string2){
     string1[str1_length + str2_length] = '\0';
 }
 
+//比较两个串
 int myStrcmp(String string1, String string2){
     int i = 0;
     while (string1[i] && string2[i]){
@@ -67,6 +70,7 @@ int getNextArray(char *pattern, int *next, int patternLength) {
     return i;
 }
 
+//暴力查找
 int BF_Search(String string, String target){
     int i = 0, j = 0;
     while(string[i] && target[j]){
@@ -84,6 +88,7 @@ int BF_Search(String string, String target){
         return -1;
 }
 
+//KMP查找
 int KMP_Search(String string, String target, int *next){
     int i = 0, j = 0;
     while(string[i] && target[j]){

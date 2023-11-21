@@ -43,10 +43,12 @@ DataType pop_SqStack(SqStack *stack) {
         printf("Stack is Empty.\n");
         return (EXIT_FAILURE);
     }
-                                       stack->top--;
+    stack->top--;
     return *(stack->top);
 }
 
+//进制转换
+//BaseNumber为基数
 void decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
     while (val){
         int remainder = val % BaseNumber;
@@ -55,6 +57,7 @@ void decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
     }
 }
 
+//输出转换后的数值
 void print_Hexadecimal(SqStack *stack, int BaseNumber){
     printf("转换后的%d进制数为：", BaseNumber);
     if(BaseNumber == 16)

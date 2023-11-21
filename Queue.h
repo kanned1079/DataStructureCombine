@@ -26,21 +26,24 @@ typedef struct SqQueue {
 //  return Q;
 //}
 
+//初始化队列
 void initial_Queue(SqQueue *Q){
     //Q = (SqQueue *)malloc(sizeof(SqQueue));
     Q->base = (DataType *)malloc(sizeof(DataType) * QUEUE_SIZE);
     Q->front = Q->rear = 0;
 }
 
-
+//队列满
 bool isFull(SqQueue *Q) {
     return (Q->front == (Q->rear + 1) % QUEUE_SIZE);
 }
 
+//队列空
 bool isEmpty(SqQueue *Q) {
     return (Q->front == Q->rear);
 }
 
+//入队列
 void SqQueue_En(SqQueue *Q, DataType value) {
     if(isFull(Q)) {
         printf("Queue is full.\n");
@@ -51,6 +54,7 @@ void SqQueue_En(SqQueue *Q, DataType value) {
     Q->rear = (Q->rear + 1) % QUEUE_SIZE;
 }
 
+//出队列
 DataType SqQueue_De(SqQueue *Q) {
     if (isEmpty(Q)) {
         printf("Queue is empty.\n");
@@ -62,6 +66,7 @@ DataType SqQueue_De(SqQueue *Q) {
     return res;
 }
 
+//生成杨辉三角
 void generate_YanghuiTriangle(SqQueue *Q, int line, int *result){
     int i, j, t, elem1, elem2;
     int length = 0;

@@ -38,6 +38,7 @@ void initial_Sqlist(SqList *list){
     list->listsize = INITIAL;
 }
 
+//插入数据
 void insertData_SqList(SqList *list){
     int vlaue = 0;
     printf("输入值：");
@@ -54,6 +55,7 @@ void insertData_SqList(SqList *list){
     }
 }
 
+//遍历顺序表
 void traverse_Sqlist(SqList *list){
     for(int term = 0; term < list->length; term++){
         printf("%d ", list->elem[term]);
@@ -61,6 +63,7 @@ void traverse_Sqlist(SqList *list){
     printf("\t Length/Capacity: %d/%d\n", list->length, list->listsize);
 }
 
+//合并两个有序的顺序表
 void mergeTwoSqList(SqList *list1, SqList *list2, SqList *list3){
     int *plist1 = list1->elem, *plist2 = list2->elem, *plist3 = NULL;
     int *plist1End = list1->elem + list1->length, *plist2End = list2->elem + list2->length;
