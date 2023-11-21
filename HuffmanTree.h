@@ -144,13 +144,3 @@ void huffmanCodes(char data[], unsigned freq[], int size) {
     for (int i = 0; i < size; ++i)
         printf("%c: %s\n", data[i], huffmanCodes[data[i]]);
 }
-
-//int main() {
-//    char data[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
-//    unsigned freq[] = { 5, 9, 12, 13, 16, 45 };
-//    int size = sizeof(data) / sizeof(data[0]);
-//
-//    huffmanCodes(data, freq, size);
-//
-//    return 0;
-//}

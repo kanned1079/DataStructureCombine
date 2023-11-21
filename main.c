@@ -8,6 +8,7 @@
 #include "Queue.h"
 #include "GList.h"
 #include "BiTree.h"
+#include "HuffmanTree.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
@@ -18,6 +19,8 @@ int main(int argc, char *argv[]) {
     void operate_Queue();
     void operate_BiTree();
     void operate_GList();
+    void fileCompressWithHuffman();
+
     outset:
     printf("数据结构： \n"
            " ├──顺序表 [0]\n"
@@ -51,6 +54,8 @@ int main(int argc, char *argv[]) {
            " │    ├─中序遍历 InOrder\n"
            " │    ├─后序遍历 PosOrder\n"
            " │    └─使用队列进行层次遍历 CountBiTreeNode\n"
+           " ├──哈曼夫树 [8]\n"
+           " │  ├─压缩txt premid\n"
            " │  \n"
            " └─未完待续\n");
     int tag;
@@ -73,6 +78,8 @@ int main(int argc, char *argv[]) {
         case 6: operate_GList();
             break;
         case 7: operate_BiTree();
+            break;
+        case 8: fileCompressWithHuffman();
             break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
@@ -293,7 +300,7 @@ void operate_GList(){
     int index = 0;
     printf("----------------------\n"
            "创建广义表：%s\n"
-           "----------------------\n", input);
+           "----------------------", input);
     GLNode *root = Glist_Create(input, &index);
 
     // 输出广义表
@@ -421,4 +428,13 @@ void operate_BiTree(){
 
     // 释放二叉树内存
     freeBiTree(root);
+}
+
+void fileCompressWithHuffman(){
+    printf("----------------------\n");
+    char data[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+    unsigned freq[] = { 5, 9, 12, 13, 16, 45 };
+    int size = sizeof(data) / sizeof(data[0]);
+
+    huffmanCodes(data, freq, size);
 }
