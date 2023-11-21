@@ -55,7 +55,7 @@ void traverse_Node(LNode *L){
 }
 
 //合并两个有序单向链表
-void *mergeTwoLinkList(LNode *L1, LNode *L2){
+LNode *mergeTwoLinkList(LNode *L1, LNode *L2){
     LNode *p1 = L1->next, *p2 = L2->next, *p3, *p3Head;
     p3Head = p3 = (LNode *) malloc(sizeof (LNode));
     while (p1 && p2){

@@ -26,6 +26,16 @@ SqStack *initial_Stack(){
     return stack;
 }
 
+//栈满
+bool stackIsFull(SqStack *stack){
+    return stack->top - stack->base == stack->stackSize;
+}
+
+//栈空
+bool stackIsEmpty(SqStack *stack){
+    return stack->top == stack->base;
+}
+
 //入棧操作
 void push_SqStack(SqStack *stack, DataType value){
     if(stack->top - stack->base >= stack->stackSize){

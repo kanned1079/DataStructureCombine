@@ -13,4 +13,5 @@ add_executable(dataStruct main.c
         Queue.h
         GList.h
         AppleQueue.h
+        HuffmanTree.h
 )
