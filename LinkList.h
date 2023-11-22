@@ -52,7 +52,7 @@ void traverse_Node(LNode *L){
     printf("\033[1;32mnull\033[0m\n");
 }
 
-void *mergeTwoLinkList(LNode *L1, LNode *L2){
+LNode *mergeTwoLinkList(LNode *L1, LNode *L2){
     LNode *p1 = L1->next, *p2 = L2->next, *p3, *p3Head;
     p3Head = p3 = (LNode *) malloc(sizeof (LNode));
     while (p1 && p2){
