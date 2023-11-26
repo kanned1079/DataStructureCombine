@@ -85,6 +85,9 @@
 		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/GList.h">
 			<Option target="dataStruct"/>
 		</Unit>
+		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/HuffmanTree.h">
+			<Option target="dataStruct"/>
+		</Unit>
 		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/LinkList.h">
 			<Option target="dataStruct"/>
 		</Unit>
