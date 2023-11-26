@@ -26,10 +26,20 @@ SqStack *initial_Stack(){
     return stack;
 }
 
+//栈满
+bool stackIsFull(SqStack *stack){
+    return stack->top - stack->base == stack->stackSize;
+}
+
+//栈空
+bool stackIsEmpty(SqStack *stack){
+    return stack->top == stack->base;
+}
+
 //入棧操作
 void push_SqStack(SqStack *stack, DataType value){
     if(stack->top - stack->base >= stack->stackSize){
-        stack->base = (DataType *) malloc(sizeof (DataType) * INCREASEMENT);
+        stack->base = (DataType *) realloc(stack->base, sizeof (DataType) * INCREASEMENT);
         stack->top  = stack->base + stack->stackSize;
         stack->stackSize += INCREASEMENT;
     }
@@ -43,10 +53,12 @@ DataType pop_SqStack(SqStack *stack) {
         printf("Stack is Empty.\n");
         return (EXIT_FAILURE);
     }
-    *stack->top--;
+    stack->top--;
     return *(stack->top);
 }
 
+//进制转换
+//BaseNumber为基数
 void decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
     while (val){
         int remainder = val % BaseNumber;
@@ -55,6 +67,7 @@ void decimal_To_Hexadecimal(SqStack *stack, int val, int BaseNumber){
     }
 }
 
+//输出转换后的数值
 void print_Hexadecimal(SqStack *stack, int BaseNumber){
     printf("转换后的%d进制数为：", BaseNumber);
     if(BaseNumber == 16)

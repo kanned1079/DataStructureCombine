@@ -38,6 +38,7 @@ void initial_Sqlist(SqList *list){
     list->listsize = INITIAL;
 }
 
+//插入数据
 void insertData_SqList(SqList *list){
     int vlaue = 0;
     printf("输入值：");
@@ -46,16 +47,15 @@ void insertData_SqList(SqList *list){
         if(vlaue == -1)
             break;
         if(list->listsize <= list->length){
-//			list->elem = (int*)realloc(list->elem, sizeof(DataType) * (INCREASEMENT));
             list->elem = (int *)realloc(list->elem, sizeof(DataType) * (list->listsize + INCREASEMENT));
             list->listsize += INCREASEMENT;
-
         }
         list->elem[list->length] = vlaue;
         list->length++;
     }
 }
 
+//遍历顺序表
 void traverse_Sqlist(SqList *list){
     for(int term = 0; term < list->length; term++){
         printf("%d ", list->elem[term]);
@@ -63,12 +63,13 @@ void traverse_Sqlist(SqList *list){
     printf("\t Length/Capacity: %d/%d\n", list->length, list->listsize);
 }
 
+//合并两个有序的顺序表
 void mergeTwoSqList(SqList *list1, SqList *list2, SqList *list3){
     int *plist1 = list1->elem, *plist2 = list2->elem, *plist3 = NULL;
     int *plist1End = list1->elem + list1->length, *plist2End = list2->elem + list2->length;
     list3->length = list1->length + list2->length;
     if(list3->listsize < list3->length){
-        list3->elem = (int*)realloc(list3->elem, sizeof(DataType)*(list3->listsize + list3->length));
+        list3->elem = (int*)realloc(list3->elem, sizeof(DataType)*list3->length);
         list3->listsize = list3->length;
     }
     list3->length = list1->length + list2->length;
