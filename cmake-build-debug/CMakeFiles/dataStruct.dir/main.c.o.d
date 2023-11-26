@@ -79,9 +79,17 @@ CMakeFiles/dataStruct.dir/main.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_mode_t.h \
   /Users/kanna/Documents/Code/DatastructureCombine/LinkList.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdbool.h \
+  /Users/kanna/Documents/Code/DatastructureCombine/DuNode.h \
   /Users/kanna/Documents/Code/DatastructureCombine/SqList.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Stack.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Strings.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Queue.h \
   /Users/kanna/Documents/Code/DatastructureCombine/GList.h \
-  /Users/kanna/Documents/Code/DatastructureCombine/BiTree.h
+  /Users/kanna/Documents/Code/DatastructureCombine/BiTree.h \
+  /Users/kanna/Documents/Code/DatastructureCombine/HuffmanTree.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_rsize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h

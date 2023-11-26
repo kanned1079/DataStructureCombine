@@ -253,14 +253,6 @@ void operate_Strings(){
         }
             break;
         case 4:{
-//            int target_len = myStrlen(string2);
-//            int *next = (int *) malloc(sizeof (int) * target_len);
-//            int next_length = getNextArray2(string2, next, target_len);
-//
-//            for(int i = 0; i < 20; i++){
-//                printf("%d ", next[i]);
-//            }
-//            printf("在源字符串的第%d下标处找到了子串\n", KMP_Search(string1, string2, next));
             int *next = (int *) malloc(sizeof (int) * myStrlen(string2));
             int len = getNextArray(string2, next, myStrlen(string2));
             {
@@ -395,11 +387,6 @@ void operate_BiTree(){
         }
             break;
         case 5: {
-//            printf("源二叉树层次遍历结果: ");
-//            LevelOrder(root);
-//            ExchangeOffspringTrees(root);
-//            printf("\n交换后二叉树层次遍历结果: ");
-//            LevelOrder(root);
             showExchange(root);
         }
             break;

@@ -81,19 +81,37 @@ CMakeFiles/dataStruct.dir/main.c.o: /Users/kanna/Documents/Code/DatastructureCom
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_mode_t.h \
   /Users/kanna/Documents/Code/DatastructureCombine/LinkList.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdbool.h \
+  /Users/kanna/Documents/Code/DatastructureCombine/DuNode.h \
   /Users/kanna/Documents/Code/DatastructureCombine/SqList.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Stack.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Strings.h \
   /Users/kanna/Documents/Code/DatastructureCombine/Queue.h \
   /Users/kanna/Documents/Code/DatastructureCombine/GList.h \
-  /Users/kanna/Documents/Code/DatastructureCombine/BiTree.h
+  /Users/kanna/Documents/Code/DatastructureCombine/BiTree.h \
+  /Users/kanna/Documents/Code/DatastructureCombine/HuffmanTree.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_rsize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h
 
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_rsize_t.h:
 
 /Users/kanna/Documents/Code/DatastructureCombine/Stack.h:
 
+/Users/kanna/Documents/Code/DatastructureCombine/DuNode.h:
+
 /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdbool.h:
 
+/Users/kanna/Documents/Code/DatastructureCombine/HuffmanTree.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/malloc/_malloc_type.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/malloc/_malloc.h:
 
@@ -104,6 +122,8 @@ CMakeFiles/dataStruct.dir/main.c.o: /Users/kanna/Documents/Code/DatastructureCom
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_wchar_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/libkern/arm/OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/string.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/libkern/_OSByteOrder.h:
 
@@ -140,6 +160,8 @@ CMakeFiles/dataStruct.dir/main.c.o: /Users/kanna/Documents/Code/DatastructureCom
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_types/_intmax_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_sigaltstack.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
 
@@ -256,6 +278,8 @@ CMakeFiles/dataStruct.dir/main.c.o: /Users/kanna/Documents/Code/DatastructureCom
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_symbol_aliasing.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_seek_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_errno_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdint.h:
 

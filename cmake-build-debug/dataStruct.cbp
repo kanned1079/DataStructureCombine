@@ -82,6 +82,9 @@
 		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/BiTree.h">
 			<Option target="dataStruct"/>
 		</Unit>
+		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/DuNode.h">
+			<Option target="dataStruct"/>
+		</Unit>
 		<Unit filename="/Users/kanna/Documents/Code/DatastructureCombine/GList.h">
 			<Option target="dataStruct"/>
 		</Unit>
