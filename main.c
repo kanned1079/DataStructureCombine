@@ -9,6 +9,7 @@
 #include "GList.h"
 #include "BiTree.h"
 #include "HuffmanTree.h"
+#include "Graph.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
@@ -20,42 +21,52 @@ int main(int argc, char *argv[]) {
     void operate_BiTree();
     void operate_GList();
     void fileCompressWithHuffman();
+    void operate_Graph();
 
     outset:
     printf("数据结构： \n"
            " ├──顺序表 [0]\n"
-           " │  └─合并两个顺序表 mergeTwoSqList\n"
+           " │  └─合并两个顺序表\n"
            " ├──单链表 [1]\n"
-           " │  ├─合并链表 mergeTwoLinkList\n"
-           " │  └─逆序链表 reverseLinkList\n"
+           " │  ├─合并链表\n"
+           " │  └─逆序链表\n"
            " ├──双向链表 [2]\n"
            " │  └─插入节点\n"
            " ├──棧 [3]\n"
-           " │  └─进制转换 decimal_To_Hexadecimal\n"
+           " │  └─进制转换\n"
            " ├──串 [4]\n"
-           " │  ├─求串长度 myStrlen\n"
-           " │  ├─串比大小 myStrcmp\n"
-           " │  ├─串连接 myConcat\n"
+           " │  ├─求串长度\n"
+           " │  ├─串比大小\n"
+           " │  ├─串连接\n"
            " │  └─模式匹配\n"
-           " │    ├─BF算法 BF_Search\n"
-           " │    └─KMP算法 KMP_Search\n"
+           " │    ├─BF算法\n"
+           " │    └─KMP算法\n"
            " ├──队列 [5]\n"
-           " │  └─杨辉三角形 generate_YanghuiTriangle\n"
+           " │  └─杨辉三角形\n"
            " ├──广义表 [6]\n"
-           " │  ├─求广义表长度 GetGListLength\n"
-           " │  ├─求广义表深度 GetGListDeepth\n"
-           " │  └─遍历广义表 TraverseGList\n"
+           " │  ├─求广义表长度\n"
+           " │  ├─求广义表深度\n"
+           " │  └─遍历广义表\n"
            " ├──树 [7]\n"
            " │  ├─创建树\n"
-           " │  │  ├─根据先序序列和中序序列生成二叉树 premid\n"
-           " │  │  └─带空指针的先序序列生成一棵二叉树 BiT_Create\n"
+           " │  │  ├─根据先序序列和中序序列生成二叉树\n"
+           " │  │  └─带空指针的先序序列生成一棵二叉树\n"
            " │  └─遍历\n"
-           " │    ├─先序遍历 PreOrder\n"
-           " │    ├─中序遍历 InOrder\n"
-           " │    ├─后序遍历 PosOrder\n"
-           " │    └─使用队列进行层次遍历 CountBiTreeNode\n"
+           " │    ├─先序遍历\n"
+           " │    ├─中序遍历\n"
+           " │    ├─后序遍历\n"
+           " │    └─使用队列进行层次遍历\n"
            " ├──哈曼夫树 [8]\n"
-           " │  ├─压缩txt premid\n"
+           " │  └─压缩txt\n"
+           " ├──图 [9]\n"
+           " │  ├─创建图\n"
+           " │  │  ├─插入数据\n"
+           " │  │  └─插入边\n"
+           " │  ├─遍历\n"
+           " │  │  ├─使用递归的优先深度搜索\n"
+           " │  │  ├─非递归深度优先搜索遍历图\n"
+           " │  │  └─广度优先搜索\n"
+           " │  └─最短路径\n"
            " │  \n"
            " └─未完待续\n");
     int tag;
@@ -80,6 +91,8 @@ int main(int argc, char *argv[]) {
         case 7: operate_BiTree();
             break;
         case 8: fileCompressWithHuffman();
+            break;
+        case 9: operate_Graph();
             break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
@@ -429,4 +442,45 @@ void fileCompressWithHuffman(){
     int size = sizeof(data) / sizeof(data[0]);
 
     huffmanCodes(data, freq, size);
+}
+
+void operate_Graph(){
+    printf("----------------------\n");
+    VertexType vertices[] = {1, 2, 3, 4, 5};
+    printf("插入的数据：");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d ", vertices[i]);
+    }
+    printf("\n----------------------\n");
+    ALGraph graph;
+    ALGraph_Init(&graph, vertices, 5);
+    // 插入边
+    ALGraph_Insert(&graph, 0, 1);
+    ALGraph_Insert(&graph, 0, 3);
+    ALGraph_Insert(&graph, 1, 2);
+    ALGraph_Insert(&graph, 1, 4);
+    ALGraph_Insert(&graph, 3, 2);
+    ALGraph_Insert(&graph, 4, 3);
+
+    // 遍历图 - 深度优先搜索
+    int visited_dfs[5] = {0};
+    printf("使用递归的优先深度搜索： ");
+    for (int i = 0; i < graph.vexnum; i++) {
+        if (!visited_dfs[i]) {
+            DFS(&graph, i, visited_dfs);
+        }
+    }
+    printf("\n");
+
+    // 非递归深度优先搜索遍历图
+    int visited_non_recursive[5] = {0};
+    printf("不使用递归的优先深度搜索： ");
+    DFS_NonRecursive(&graph, 0, visited_non_recursive);
+
+    // 遍历图 - 广度优先搜索
+    printf("广度优先搜索： ");
+    int visited_bfs[5] = {0};
+    BFS(&graph, 0, visited_bfs);
+
+    free(graph.vertexes);  // 释放动态分配的内存
 }

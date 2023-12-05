@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/kanna/Documents/Code/DatastructureCombine -B /Users/kanna/Documents/Code/DatastructureCombine/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/kanna/Documents/Code/DataStructureCombine -B /Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug
 -- Configuring done (0.0s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/kanna/Documents/Code/DatastructureCombine/cmake-build-debug
+-- Build files have been written to: /Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug
