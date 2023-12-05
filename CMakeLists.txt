@@ -15,4 +15,5 @@ add_executable(dataStruct main.c
         AppleQueue.h
         HuffmanTree.h
         Graph.h
+        Search.h
 )

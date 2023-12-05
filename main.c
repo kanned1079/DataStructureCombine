@@ -10,6 +10,7 @@
 #include "BiTree.h"
 #include "HuffmanTree.h"
 #include "Graph.h"
+#include "Search.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
@@ -22,6 +23,7 @@ int main(int argc, char *argv[]) {
     void operate_GList();
     void fileCompressWithHuffman();
     void operate_Graph();
+    void operate_Search();
 
     outset:
     printf("数据结构： \n"
@@ -67,6 +69,7 @@ int main(int argc, char *argv[]) {
            " │  │  ├─非递归深度优先搜索遍历图\n"
            " │  │  └─广度优先搜索\n"
            " │  └─最短路径\n"
+           " ├──查找 [10]\n"
            " │  \n"
            " └─未完待续\n");
     int tag;
@@ -93,6 +96,8 @@ int main(int argc, char *argv[]) {
         case 8: fileCompressWithHuffman();
             break;
         case 9: operate_Graph();
+            break;
+        case 10: operate_Search();
             break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
@@ -225,11 +230,11 @@ void operate_Strings(){
     printf("输入串1数据：");
     String string1;
     //String string1 = "ADBADABBAABADABBADADA";
-    scanf("%s", &string1);
+    scanf("%s", string1);
     printf("输入串2数据：");
     //String string2;
     String string2 = "ADABBADADA";
-    scanf("%s", &string2);
+    scanf("%s", string2);
     printf("----------------------\n");
     printf("串的操作\n"
            " ├─获取长度 [0]\n"
@@ -462,25 +467,74 @@ void operate_Graph(){
     ALGraph_Insert(&graph, 3, 2);
     ALGraph_Insert(&graph, 4, 3);
 
-    // 遍历图 - 深度优先搜索
-    int visited_dfs[5] = {0};
-    printf("使用递归的优先深度搜索： ");
-    for (int i = 0; i < graph.vexnum; i++) {
-        if (!visited_dfs[i]) {
-            DFS(&graph, i, visited_dfs);
+    printf("选择遍历的方法\n"
+           " ├─使用递归的优先深度搜索 [0]\n"
+           " ├─不使用递归的优先深度搜索 [1]\n"
+           " └─广度优先搜索 [2]\n");
+    int tag;
+    printf("\033[1;35m选择遍历方法：\033[0m");
+    scanf("%d", &tag);
+    printf("----------------------\n");
+    switch (tag) {
+        case 0:{
+            // 遍历图 - 深度优先搜索
+            int visited_dfs[5] = {0};
+            printf("使用递归的优先深度搜索： ");
+            for (int i = 0; i < graph.vexnum; i++) {
+                if (!visited_dfs[i]) {
+                    DFS(&graph, i, visited_dfs);
+                }
+            }
+            printf("\n");
         }
+            break;
+        case 1:{
+            // 非递归深度优先搜索遍历图
+            int visited_non_recursive[5] = {0};
+            printf("不使用递归的优先深度搜索： ");
+            DFS_NonRecursive(&graph, 0, visited_non_recursive);
+        }
+            break;
+        case 2:{
+            // 遍历图 - 广度优先搜索
+            printf("广度优先搜索： ");
+            int visited_bfs[5] = {0};
+            BFS(&graph, 0, visited_bfs);
+        }
+            break;
     }
+    free(graph.vertexes);  // 释放动态分配的内存
+}
+
+void operate_Search(){
+    int length = 0;
+    printf("----------------------\n");
+    printf("生成的随机数长度：");
+    scanf("%d", &length);
+
+    SSTable ssTable;
+    initial_ssTable(&ssTable, length);
+    insertRandomNums(ssTable.data, length);
+
+    //insertSort(&ssTable, length);
+    maopaoSort(&ssTable, length);
+
+    for(int i = 0; i < length; i++)
+        printf("%d ", ssTable.data[i]);
     printf("\n");
 
-    // 非递归深度优先搜索遍历图
-    int visited_non_recursive[5] = {0};
-    printf("不使用递归的优先深度搜索： ");
-    DFS_NonRecursive(&graph, 0, visited_non_recursive);
+    printf("搜索的目标：");
+    int target = 0;
+    scanf("%d", &target);
 
-    // 遍历图 - 广度优先搜索
-    printf("广度优先搜索： ");
-    int visited_bfs[5] = {0};
-    BFS(&graph, 0, visited_bfs);
+    printf("----------------------\n");
 
-    free(graph.vertexes);  // 释放动态分配的内存
+    int searchResult;
+    searchResult = binSearch(&ssTable, target, length);
+    printf("位置：");
+    if(searchResult == -1)
+        printf("未找到\n");
+    else
+        printf("%d\n", searchResult);
+
 }
