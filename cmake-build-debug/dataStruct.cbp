@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug"/>
+				<Option working_dir="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="dataStruct">
-				<Option output="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/dataStruct" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug"/>
+				<Option output="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/dataStruct" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -30,15 +30,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 dataStruct"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 dataStruct"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="dataStruct/fast">
-				<Option output="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/dataStruct" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug"/>
+				<Option output="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/dataStruct" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -49,73 +49,73 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 dataStruct/fast"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 dataStruct/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug"/>
+				<Option working_dir="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug"/>
+				<Option working_dir="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/AppleQueue.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/AppleQueue.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/BiTree.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/BiTree.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/GList.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/GList.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/Graph.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Graph.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/HuffmanTree.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/HuffmanTree.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/LinkList.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/LinkList.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/Queue.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Queue.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/Search.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Search.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/SqList.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/SqList.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/Stack.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Stack.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/Strings.h">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Strings.h">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/SqList.cpp">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/SqList.cpp">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/main.c">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/main.c">
 			<Option target="dataStruct"/>
 		</Unit>
-		<Unit filename="/Users/kanna/Documents/Code/DataStructureCombine/CMakeLists.txt">
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

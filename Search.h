@@ -28,7 +28,6 @@ void initial_ssTable(SSTable *table, int tableSize){
 
 //生成范围内的随机数
 int generateRandomNumber(int start, int end) {
-    // 确保种子不同，以便每次运行程序都能获得不同的随机数序列
 //    srand((unsigned int)time(NULL));
     int randomNumber = rand() % (end - start + 1) + start;
     return randomNumber;
@@ -36,30 +35,30 @@ int generateRandomNumber(int start, int end) {
 
 //插入随机数
 void insertRandomNums(int *Nums, int tableSize, int start, int end){
-    for(int term = 0; term < tableSize; term++){
-        //Nums[term] = rand()%(100-10+1)+10;
+    for(int term = 0; term < tableSize; term++)
         Nums[term] = generateRandomNumber(start, end);
-    }
 }
 
 //选择排序
-void selectSort(SSTable *ssTable, int tableSize){
+void selectSort(SSTable *ssTable) {
     int temp = 0;
-    for(int i = 0; i < tableSize - 1; i++)
-        for(int j = i; j < tableSize; j++)
-            if(ssTable->data[i] > ssTable->data[j]){
+    for (int i = 0; i < ssTable->length - 1; i++){
+        for (int j = i; j < ssTable->length; j++) {
+            if (ssTable->data[i] > ssTable->data[j]) {
                 //交换
                 temp = ssTable->data[i];
                 ssTable->data[i] = ssTable->data[j];
                 ssTable->data[j] = temp;
             }
+        }
+    }
 }
 
 //冒泡排序
-void maopaoSort(SSTable *ssTable, int tableSize) {
+void maopaoSort(SSTable *ssTable) {
     int temp = 0;
-    for (int i = 0; i < tableSize - 1; i++) { // 修正这里的循环终止条件
-        for (int j = 0; j < tableSize - i - 1; j++) {
+    for (int i = 0; i < ssTable->length - 1; i++) { // 修正这里的循环终止条件
+        for (int j = 0; j < ssTable->length - i - 1; j++) {
             if (ssTable->data[j] > ssTable->data[j + 1]) {
                 // 如果前一个元素大于后一个元素，交换它们
                 temp = ssTable->data[j];
@@ -71,9 +70,9 @@ void maopaoSort(SSTable *ssTable, int tableSize) {
 }
 
 //插入排序
-void insertSort(SSTable *ssTable, int tableSize){
+void insertSort(SSTable *ssTable){
     int i, j, k;
-    for(i=1; i<10; i++){
+    for(i = 1; i < ssTable->length; i++){
         k = ssTable->data[i];
         j = i - 1;
         while (ssTable->data[j] > k && ssTable->data[j] > 0) {
@@ -113,13 +112,13 @@ void heapify(int arr[], int n, int i) {
 }
 
 //堆排序
-void heapSort(SSTable *ssTable, int tableSize) {
+void heapSort(SSTable *ssTable) {
     // 构建最大堆（从最后一个非叶子节点开始）
-    for (int i = tableSize / 2 - 1; i >= 0; i--)
-        heapify(ssTable->data, tableSize, i);
+    for (int i = ssTable->length / 2 - 1; i >= 0; i--)
+        heapify(ssTable->data, ssTable->length, i);
 
     // 一个一个从堆顶取出元素
-    for (int i = tableSize - 1; i > 0; i--) {
+    for (int i = ssTable->length - 1; i > 0; i--) {
         // 将当前堆顶元素与堆尾元素交换
         swap(&ssTable->data[0], &ssTable->data[i]);
 
@@ -129,9 +128,8 @@ void heapSort(SSTable *ssTable, int tableSize) {
 }
 
 //顺序查询
-int SqSearch(SSTable *ssTable, DataType key ,int tableSize){
-    int index = 0;
-    for(int i = 0; i < tableSize; i++){
+int SqSearch(SSTable *ssTable, DataType key){
+    for(int i = 0; i < ssTable->length; i++){
         if(ssTable->data[i] == key)
             return i;
     }
@@ -139,9 +137,9 @@ int SqSearch(SSTable *ssTable, DataType key ,int tableSize){
 }
 
 //二分查找
-int binSearch(SSTable *ssTable, DataType key, int tableSize) {
+int binSearch(SSTable *ssTable, DataType key) {
     int low = 0;
-    int high = tableSize - 1;
+    int high = ssTable->length - 1;
 
     while (low <= high) {
         int mid = (low + high) / 2;
@@ -160,9 +158,9 @@ int binSearch(SSTable *ssTable, DataType key, int tableSize) {
 void treverseTable(SSTable *ssTable, int length){
     int lines = 0;
     for(int i = 0; i < length; i++){
-        printf("%6d", ssTable->data[i]);
+        printf("%-6d", ssTable->data[i]);
         lines++;
-        if(lines % 30 == 0){
+        if(lines % 20 == 0){
             printf("\n");
         }
     }

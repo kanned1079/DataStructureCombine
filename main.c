@@ -535,22 +535,19 @@ void operate_Search(){
             printf("跳过了排序\n");
             break;
         case 1:
-            selectSort(&ssTable, length);
+            selectSort(&ssTable);
             break;
         case 2:
-            maopaoSort(&ssTable, length);
+            maopaoSort(&ssTable);
             break;
         case 3:
-            insertSort(&ssTable, length);
+            insertSort(&ssTable);
             break;
         case 4:
-            heapSort(&ssTable, length);
+            heapSort(&ssTable);
             break;
     }
 
-//    for(int i = 0; i < length; i++)
-//        printf("%d ", ssTable.data[i]);
-//    printf("\n");
     treverseTable(&ssTable, length);
 
     printf("\033[1;35m要搜索的目标值：\033[0m");
@@ -569,10 +566,10 @@ void operate_Search(){
     scanf("%d", &searchWay);
     switch (searchWay) {
         case 0:
-            searchResult = SqSearch(&ssTable, target, length);
+            searchResult = SqSearch(&ssTable, target);
             break;
         case 1:
-            searchResult = binSearch(&ssTable, target, length);
+            searchResult = binSearch(&ssTable, target);
     }
     //searchResult = binSearch(&ssTable, target, length);
     printf("----------------------\n位置：");
