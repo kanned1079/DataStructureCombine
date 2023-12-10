@@ -155,3 +155,16 @@ int binSearch(SSTable *ssTable, DataType key, int tableSize) {
     }
     return -1;
 }
+
+//遍历
+void treverseTable(SSTable *ssTable, int length){
+    int lines = 0;
+    for(int i = 0; i < length; i++){
+        printf("%6d", ssTable->data[i]);
+        lines++;
+        if(lines % 30 == 0){
+            printf("\n");
+        }
+    }
+    printf("\n");
+}

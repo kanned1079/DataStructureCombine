@@ -548,9 +548,10 @@ void operate_Search(){
             break;
     }
 
-    for(int i = 0; i < length; i++)
-        printf("%d ", ssTable.data[i]);
-    printf("\n");
+//    for(int i = 0; i < length; i++)
+//        printf("%d ", ssTable.data[i]);
+//    printf("\n");
+    treverseTable(&ssTable, length);
 
     printf("\033[1;35m要搜索的目标值：\033[0m");
     int target = 0;
