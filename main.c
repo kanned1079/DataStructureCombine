@@ -507,34 +507,77 @@ void operate_Graph(){
 }
 
 void operate_Search(){
-    int length = 0;
+    srand((unsigned int)time(NULL));
+    int length = 0,minR, maxR;
     printf("----------------------\n");
-    printf("生成的随机数长度：");
+    printf("\033[1;35m生成的随机数长度：\033[0m");
     scanf("%d", &length);
-
+    printf("\033[1;35m最小：\033[0m");
+    scanf("%d", &minR);
+    printf("\033[1;35m最大：\033[0m");
+    scanf("%d", &maxR);
     SSTable ssTable;
     initial_ssTable(&ssTable, length);
-    insertRandomNums(ssTable.data, length);
+    insertRandomNums(ssTable.data, length, minR, maxR);
 
-    //insertSort(&ssTable, length);
-    maopaoSort(&ssTable, length);
+    printf("----------------------\n");
+    printf("排序方式\n"
+           " ├─不排序 [0]\n"
+           " ├─选择排序 [1]\n"
+           " ├─冒泡排序 [2]\n"
+           " ├─插入排序 [3]\n"
+           " └─堆排序 [4]\n");
+    int sortTag;
+    printf("\033[1;35m请选择排序的方法：\033[0m");
+    scanf("%d", &sortTag);
+    switch (sortTag) {
+        case 0:
+            printf("跳过了排序\n");
+            break;
+        case 1:
+            selectSort(&ssTable, length);
+            break;
+        case 2:
+            maopaoSort(&ssTable, length);
+            break;
+        case 3:
+            insertSort(&ssTable, length);
+            break;
+        case 4:
+            heapSort(&ssTable, length);
+            break;
+    }
 
     for(int i = 0; i < length; i++)
         printf("%d ", ssTable.data[i]);
     printf("\n");
 
-    printf("搜索的目标：");
+    printf("\033[1;35m要搜索的目标值：\033[0m");
     int target = 0;
     scanf("%d", &target);
 
     printf("----------------------\n");
-
-    int searchResult;
-    searchResult = binSearch(&ssTable, target, length);
-    printf("位置：");
+    int searchResult, searchWay;
+    printf("查询方式\n"
+           " ├─顺序查找 [0]\n"
+           " ├─二分查找 [1]\n"
+           " ├─ [2]\n"
+           " ├─ [3]\n"
+           " └─ [4]\n");
+    printf("\033[1;35m请选择搜索方法：\033[0m");
+    scanf("%d", &searchWay);
+    switch (searchWay) {
+        case 0:
+            searchResult = SqSearch(&ssTable, target, length);
+            break;
+        case 1:
+            searchResult = binSearch(&ssTable, target, length);
+    }
+    //searchResult = binSearch(&ssTable, target, length);
+    printf("----------------------\n位置：");
     if(searchResult == -1)
         printf("未找到\n");
     else
-        printf("%d\n", searchResult);
+        printf("在下标[%d]处\n", searchResult);
 
 }

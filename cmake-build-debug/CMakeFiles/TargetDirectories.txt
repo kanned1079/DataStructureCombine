@@ -1,3 +1,3 @@
-/Users/kanna/Documents/Code/DatastructureCombine/cmake-build-debug/CMakeFiles/dataStruct.dir
-/Users/kanna/Documents/Code/DatastructureCombine/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kanna/Documents/Code/DatastructureCombine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles/dataStruct.dir
+/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

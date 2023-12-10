@@ -20,18 +20,42 @@ typedef struct ssTable{
     int length;
 } SSTable;
 
+//初始化
 void initial_ssTable(SSTable *table, int tableSize){
     table->data = malloc(sizeof (DataType) * tableSize);
     table->length = tableSize;
 }
 
-void insertRandomNums(int *Nums, int tableSize){
-    srand((unsigned int) time(NULL));
+//生成范围内的随机数
+int generateRandomNumber(int start, int end) {
+    // 确保种子不同，以便每次运行程序都能获得不同的随机数序列
+//    srand((unsigned int)time(NULL));
+    int randomNumber = rand() % (end - start + 1) + start;
+    return randomNumber;
+}
+
+//插入随机数
+void insertRandomNums(int *Nums, int tableSize, int start, int end){
     for(int term = 0; term < tableSize; term++){
-        Nums[term] = rand()%(100-10+1)+10;
+        //Nums[term] = rand()%(100-10+1)+10;
+        Nums[term] = generateRandomNumber(start, end);
     }
 }
 
+//选择排序
+void selectSort(SSTable *ssTable, int tableSize){
+    int temp = 0;
+    for(int i = 0; i < tableSize - 1; i++)
+        for(int j = i; j < tableSize; j++)
+            if(ssTable->data[i] > ssTable->data[j]){
+                //交换
+                temp = ssTable->data[i];
+                ssTable->data[i] = ssTable->data[j];
+                ssTable->data[j] = temp;
+            }
+}
+
+//冒泡排序
 void maopaoSort(SSTable *ssTable, int tableSize) {
     int temp = 0;
     for (int i = 0; i < tableSize - 1; i++) { // 修正这里的循环终止条件
@@ -46,6 +70,7 @@ void maopaoSort(SSTable *ssTable, int tableSize) {
     }
 }
 
+//插入排序
 void insertSort(SSTable *ssTable, int tableSize){
     int i, j, k;
     for(i=1; i<10; i++){
@@ -59,7 +84,51 @@ void insertSort(SSTable *ssTable, int tableSize){
     }
 }
 
+//交换
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
+//调整堆，使其满足最大堆性质
+void heapify(int arr[], int n, int i) {
+    int largest = i;    // 初始化父节点为最大值
+    int left = 2 * i + 1;    // 左子节点
+    int right = 2 * i + 2;   // 右子节点
+
+    // 如果左子节点比父节点大，则更新最大值索引
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    // 如果右子节点比父节点大，则更新最大值索引
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    // 如果最大值不是父节点，则交换父节点和最大值，并递归调整子树
+    if (largest != i) {
+        swap(&arr[i], &arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+//堆排序
+void heapSort(SSTable *ssTable, int tableSize) {
+    // 构建最大堆（从最后一个非叶子节点开始）
+    for (int i = tableSize / 2 - 1; i >= 0; i--)
+        heapify(ssTable->data, tableSize, i);
+
+    // 一个一个从堆顶取出元素
+    for (int i = tableSize - 1; i > 0; i--) {
+        // 将当前堆顶元素与堆尾元素交换
+        swap(&ssTable->data[0], &ssTable->data[i]);
+
+        // 调整剩余堆，使其满足最大堆性质
+        heapify(ssTable->data, i, 0);
+    }
+}
+
+//顺序查询
 int SqSearch(SSTable *ssTable, DataType key ,int tableSize){
     int index = 0;
     for(int i = 0; i < tableSize; i++){
@@ -69,6 +138,7 @@ int SqSearch(SSTable *ssTable, DataType key ,int tableSize){
     return -1;
 }
 
+//二分查找
 int binSearch(SSTable *ssTable, DataType key, int tableSize) {
     int low = 0;
     int high = tableSize - 1;
