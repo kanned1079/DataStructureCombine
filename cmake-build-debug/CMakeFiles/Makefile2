@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kanna/Documents/Code/DataStructureCombine
+CMAKE_SOURCE_DIR = /Users/kanna/CLionProjects/DataStructureCombine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/dataStruct.dir/clean
 CMakeFiles/dataStruct.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dataStruct.dir/build.make CMakeFiles/dataStruct.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dataStruct.dir/build.make CMakeFiles/dataStruct.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target dataStruct"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target dataStruct"
 .PHONY : CMakeFiles/dataStruct.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dataStruct.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dataStruct.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kanna/Documents/Code/DataStructureCombine/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kanna/CLionProjects/DataStructureCombine/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/dataStruct.dir/rule
 
 # Convenience name for target.

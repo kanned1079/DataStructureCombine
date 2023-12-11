@@ -509,6 +509,8 @@ void operate_Graph(){
 void operate_Search(){
     srand((unsigned int)time(NULL));
     int length = 0,minR, maxR;
+    int term = 0;
+    int target = 0;
     printf("----------------------\n");
     printf("\033[1;35m生成的随机数长度：\033[0m");
     scanf("%d", &length);
@@ -521,6 +523,7 @@ void operate_Search(){
     insertRandomNums(ssTable.data, length, minR, maxR);
 
     printf("----------------------\n");
+    sort:
     printf("排序方式\n"
            " ├─不排序 [0]\n"
            " ├─选择排序 [1]\n"
@@ -530,6 +533,7 @@ void operate_Search(){
     int sortTag;
     printf("\033[1;35m请选择排序的方法：\033[0m");
     scanf("%d", &sortTag);
+
     switch (sortTag) {
         case 0:
             printf("跳过了排序\n");
@@ -548,28 +552,40 @@ void operate_Search(){
             break;
     }
 
-    treverseTable(&ssTable, length);
-
-    printf("\033[1;35m要搜索的目标值：\033[0m");
-    int target = 0;
-    scanf("%d", &target);
+    if(term == 0){
+        printf("\033[1;35m显示数组内容吗：\033[0m");
+        int showTag;
+        scanf("%d", &showTag);
+        if(showTag == 1){
+            traverseTable(&ssTable);
+        } else {
+            printf("不显示\n");
+        }
+        printf("\033[1;35m要搜索的目标值：\033[0m");
+        scanf("%d", &target);
+    }
 
     printf("----------------------\n");
     int searchResult, searchWay;
     printf("查询方式\n"
            " ├─顺序查找 [0]\n"
-           " ├─二分查找 [1]\n"
-           " ├─ [2]\n"
-           " ├─ [3]\n"
-           " └─ [4]\n");
+           " └─折半查找 [1]\n");
     printf("\033[1;35m请选择搜索方法：\033[0m");
     scanf("%d", &searchWay);
+
     switch (searchWay) {
         case 0:
             searchResult = SqSearch(&ssTable, target);
             break;
-        case 1:
+        case 1:{
+            if(sortTag == 0){
+                printf("\033[1;31m折半查找需要排序\n\033[0m");
+                term = 1;
+                goto sort;
+            }
             searchResult = binSearch(&ssTable, target);
+        }
+            break;
     }
     //searchResult = binSearch(&ssTable, target, length);
     printf("----------------------\n位置：");

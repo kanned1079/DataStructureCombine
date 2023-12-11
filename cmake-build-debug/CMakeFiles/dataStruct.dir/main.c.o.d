@@ -1,5 +1,5 @@
 CMakeFiles/dataStruct.dir/main.c.o: \
-  /Users/kanna/Documents/Code/DataStructureCombine/main.c \
+  /Users/kanna/CLionProjects/DataStructureCombine/main.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/cdefs.h \
@@ -77,24 +77,24 @@ CMakeFiles/dataStruct.dir/main.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/malloc/_malloc_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_mode_t.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/LinkList.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/LinkList.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdbool.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/DuNode.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/SqList.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/Stack.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/Strings.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/Queue.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/GList.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/BiTree.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/HuffmanTree.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/DuNode.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/SqList.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/Stack.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/Strings.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/Queue.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/GList.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/BiTree.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/HuffmanTree.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_errno_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/secure/_string.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/Graph.h \
-  /Users/kanna/Documents/Code/DataStructureCombine/Search.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/Graph.h \
+  /Users/kanna/CLionProjects/DataStructureCombine/Search.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_clock_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/_types/_time_t.h \

@@ -155,9 +155,9 @@ int binSearch(SSTable *ssTable, DataType key) {
 }
 
 //遍历
-void treverseTable(SSTable *ssTable, int length){
+void traverseTable(SSTable *ssTable){
     int lines = 0;
-    for(int i = 0; i < length; i++){
+    for(int i = 0; i < ssTable->length; i++){
         printf("%-6d", ssTable->data[i]);
         lines++;
         if(lines % 20 == 0){
