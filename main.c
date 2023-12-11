@@ -70,6 +70,15 @@ int main(int argc, char *argv[]) {
            " │  │  └─广度优先搜索\n"
            " │  └─最短路径\n"
            " ├──查找 [10]\n"
+           " │  ├─排序\n"
+           " │  │  ├─不排序\n"
+           " │  │  ├─选择排序\n"
+           " │  │  ├─冒泡排序\n"
+           " │  │  ├─插入排序\n"
+           " │  │  └─堆排序\n"
+           " │  └─查询方式\n"
+           " │     ├─顺序查找\n"
+           " │     └─折半查找\n"
            " │  \n"
            " └─未完待续\n");
     int tag;
@@ -592,6 +601,6 @@ void operate_Search(){
     if(searchResult == -1)
         printf("未找到\n");
     else
-        printf("在下标[%d]处\n", searchResult);
+        printf("值%d在下标[%d]处\n", target, searchResult);
 
 }
