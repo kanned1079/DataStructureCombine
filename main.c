@@ -554,7 +554,8 @@ void operate_Search(){
             maopaoSort(&ssTable);
             break;
         case 3:
-            insertSort(&ssTable);
+            //insertSort(&ssTable);
+            myInsertSort(&ssTable);
             break;
         case 4:
             heapSort(&ssTable);

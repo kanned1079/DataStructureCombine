@@ -39,6 +39,13 @@ void insertRandomNums(int *Nums, int tableSize, int start, int end){
         Nums[term] = generateRandomNumber(start, end);
 }
 
+//交换
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 //选择排序
 void selectSort(SSTable *ssTable) {
     int temp = 0;
@@ -69,13 +76,28 @@ void maopaoSort(SSTable *ssTable) {
     }
 }
 
-//插入排序
-void insertSort(SSTable *ssTable){
+//冒泡排序（沉底）
+void bubbleSort(SSTable *ssTable) {
+    for (int i = 0; i < ssTable->length - 1; i++) {
+        // 每轮将最大元素沉底
+        for (int j = 0; j < ssTable->length - i - 1; j++) {
+            if (ssTable->data[j] > ssTable->data[j + 1]) {
+                // 交换元素位置
+                int temp = ssTable->data[j];
+                ssTable->data[j] = ssTable->data[j + 1];
+                ssTable->data[j + 1] = temp;
+            }
+        }
+    }
+}
+
+//插入排序 fixed
+void myInsertSort(SSTable *ssTable){
     int i, j, k;
     for(i = 1; i < ssTable->length; i++){
         k = ssTable->data[i];
         j = i - 1;
-        while (ssTable->data[j] > k && ssTable->data[j] > 0) {
+        while (j >= 0 && ssTable->data[j] > k) {
             ssTable->data[j + 1] = ssTable->data[j];
             j--;
         }
@@ -83,11 +105,33 @@ void insertSort(SSTable *ssTable){
     }
 }
 
-//交换
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+//插入排序 上课教的
+void insertSort(SSTable *ssTable){
+    int i, j, x;
+    for(i = 1; i < ssTable->length; i++){
+        x = ssTable->data[i];
+        for(j = i - 1; j >= 0 && ssTable->data[j] > x; j--)
+            ssTable->data[j + 1] = ssTable->data[j];
+        ssTable->data[j + 1] = x;
+    }
+}
+
+// 根据最右侧元素（pivot）将数组划分为两部分，并返回pivot的最终位置
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];  // 选择最右侧元素作为pivot
+    int i = (low - 1);  // 初始化较小元素的索引
+
+    // 遍历数组，将小于等于pivot的元素放到左侧，大于pivot的元素放到右侧
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+
+    // 将pivot放到其最终位置
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
 }
 
 //调整堆，使其满足最大堆性质
