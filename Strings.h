@@ -70,7 +70,7 @@ int getNextArray(char *pattern, int *next, int patternLength) {
     return i;
 }
 
-//暴力查找
+//暴力查找 必考
 int BF_Search(String string, String target){
     int i = 0, j = 0;
     while(string[i] && target[j]){
@@ -88,7 +88,7 @@ int BF_Search(String string, String target){
         return -1;
 }
 
-//KMP查找
+//KMP查找 必考45
 int KMP_Search(String string, String target, int *next){
     int i = 0, j = 0;
     while(string[i] && target[j]){

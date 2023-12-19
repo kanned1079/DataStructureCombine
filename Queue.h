@@ -14,6 +14,7 @@
 #define DataType int
 #define QUEUE_SIZE 200
 
+//循环队列
 typedef struct SqQueue {
     DataType *base;
     int front, rear;

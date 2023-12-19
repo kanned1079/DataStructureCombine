@@ -2,6 +2,8 @@
 // Created by kanna on 2023/11/17.
 //
 
+// ////////////////////////////////////////////////
+
 #ifndef DATASTRUCT_GLIST_H
 #define DATASTRUCT_GLIST_H
 

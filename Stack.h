@@ -18,6 +18,7 @@ typedef struct SqStack {
     int stackSize;
 } SqStack;
 
+//初始化
 SqStack *initial_Stack(){
     SqStack *stack;
     stack = (SqStack *) malloc(sizeof (SqStack));

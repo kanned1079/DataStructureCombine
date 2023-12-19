@@ -319,7 +319,7 @@ void operate_GList(){
     int index = 0;
     printf("----------------------\n"
            "创建广义表：%s\n"
-           "----------------------", input);
+           "----------------------\n", input);
     GLNode *root = Glist_Create(input, &index);
 
     // 输出广义表
