@@ -11,6 +11,7 @@
 #include "HuffmanTree.h"
 #include "Graph.h"
 #include "Search.h"
+#include "HuffEncodeDecode.h"
 
 int main(int argc, char *argv[]) {
     void operate_LinkList();
@@ -24,6 +25,7 @@ int main(int argc, char *argv[]) {
     void fileCompressWithHuffman();
     void operate_Graph();
     void operate_Search();
+    void operate_EnDecode();
 
     outset:
     printf("数据结构： \n"
@@ -107,6 +109,8 @@ int main(int argc, char *argv[]) {
         case 9: operate_Graph();
             break;
         case 10: operate_Search();
+            break;
+        case 11: operate_EnDecode();
             break;
         default:
             printf("\033[1;31mERROR\n\033[0m");
@@ -537,12 +541,13 @@ void operate_Search(){
            " ├─不排序 [0]\n"
            " ├─选择排序 [1]\n"
            " ├─冒泡排序 [2]\n"
-           " ├─插入排序 [3]\n"
-           " └─堆排序 [4]\n");
+           " ├─冒泡排序(沉底) [3]\n"
+           " ├─插入排序 [4]\n"
+           " ├─堆排序 [5]\n"
+           " └─快速排序 [6]\n");
     int sortTag;
     printf("\033[1;35m请选择排序的方法：\033[0m");
     scanf("%d", &sortTag);
-
     switch (sortTag) {
         case 0:
             printf("跳过了排序\n");
@@ -554,12 +559,18 @@ void operate_Search(){
             maopaoSort(&ssTable);
             break;
         case 3:
-            //insertSort(&ssTable);
-            myInsertSort(&ssTable);
+            bubbleSort(&ssTable);
             break;
         case 4:
+            myInsertSort(&ssTable);
+            break;
+        case 5:
             heapSort(&ssTable);
             break;
+        case 6:
+            quickSort(&ssTable, 0, ssTable.length - 1);
+            break;
+
     }
 
     if(term == 0){
@@ -579,7 +590,8 @@ void operate_Search(){
     int searchResult, searchWay;
     printf("查询方式\n"
            " ├─顺序查找 [0]\n"
-           " └─折半查找 [1]\n");
+           " ├─折半查找 [1]\n"
+           " └─差分查找 [2]\n");
     printf("\033[1;35m请选择搜索方法：\033[0m");
     scanf("%d", &searchWay);
 
@@ -596,6 +608,16 @@ void operate_Search(){
             searchResult = binSearch(&ssTable, target);
         }
             break;
+        case 2:{
+            if(sortTag == 0){
+                printf("\033[1;31m差分查找需要排序\n\033[0m");
+                term = 1;
+                goto sort;
+            }
+            searchResult = interpolationSearch(&ssTable, target);
+        }
+            break;
+
     }
     //searchResult = binSearch(&ssTable, target, length);
     printf("----------------------\n位置：");
@@ -604,4 +626,30 @@ void operate_Search(){
     else
         printf("值%d在下标[%d]处\n", target, searchResult);
 
+}
+
+void operate_EnDecode(){
+    char srcfile[] = "test.txt";    // 源文件名
+    char descode[] = "CODE.txt";    // 编码压缩后的文件名
+    char destxt[] = "DECODE.txt";   // 解码还原后的文件名
+
+    charweight flist[256];          // 存储字符权制表
+    int n = readFile(srcfile, flist);  // 生成字符权制表并返回字符个数
+
+    HfmNode hfmtree[511];           // 存储Huffman树
+    createHfm(n, flist, hfmtree);   // 建立Huffman树
+
+    HfmCode hfmcode[256];           // 存储Huffman编码
+    initHfmcode(n, flist, hfmcode); // 初始化Huffman编码
+    createHfmcode(n, hfmtree, hfmcode);  // 生成Huffman编码
+
+    writeHead(descode, flist, n);   // 生成压缩文件头部信息
+    translate(srcfile, descode, n, hfmcode);  // 生成编码压缩文件
+
+    // 解码还原文件
+    restore(descode, destxt, n, hfmcode);
+
+    printf("Huffman编码和解码完成。\n");
+
+//    return 0;
 }

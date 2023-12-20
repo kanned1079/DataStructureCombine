@@ -16,4 +16,5 @@ add_executable(dataStruct main.c
         HuffmanTree.h
         Graph.h
         Search.h
+        HuffEncodeDecode.h
 )

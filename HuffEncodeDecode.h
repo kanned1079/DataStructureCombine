@@ -161,19 +161,74 @@ void translate(char *srcfile, char  *desfile, int n, HfmCode *hfmcode){
     fclose(fp2);
 }
 
-int nreadFile(char *descode, charweight nflist){
-//    //读生成的压缩文件
-//    FILE  *fp;
-//    int i, n;
-//    fp = fopen(descode, "rb");
-//    fscanf(fp, "%d", &n);
+//读取生成的压缩文件
+int nreadFile(char *descode, charweight nflist[]){
+    FILE *fp;
+    int n, i;
+    fp = fopen(descode, "rb");
+    if (fp == NULL) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    fscanf(fp, "%d", &n);
+    for (i = 0; i < n; i++)
+        fscanf(fp, " %c%d", &nflist[i].ch, &nflist[i].weight);
+    fclose(fp);
+    return n;
 }
 
-//void select(int n, int *n1, int *n2, HfmNode *hfmtree){
+//将压缩文件还原为源文件
+void restore(char  *descode, char  *destxt, int n, HfmCode *hfmcode){
+    FILE *fp1, *fp2;
+    char ch, bit;
+    int i, node, current;
+    HfmCode *currentCode;
+
+    fp1 = fopen(descode, "rb");
+    if (fp1 == NULL) {
+        perror("Error opening compressed file");
+        exit(EXIT_FAILURE);
+    }
+
+    fp2 = fopen(destxt, "wb");
+    if (fp2 == NULL) {
+        perror("Error creating restored file");
+        exit(EXIT_FAILURE);
+    }
+
+    fseek(fp1, (n + 1) * sizeof(char) * 5, SEEK_SET);  // Skip header information
+
+    node = 2 * n - 2;  // Start from the root of the Huffman tree
+    current = 0;
+
+    while ((ch = fgetc(fp1)) != EOF) {
+        for (i = 7; i >= 0; i--) {
+            bit = (ch >> i) & 1;
+            currentCode = &hfmcode[current];
+
+            if (bit == 0) {
+                // Move to the left child
+                node = currentCode->start == 99 ? currentCode->link[0] : currentCode->link[currentCode->start + 1];
+            } else {
+                // Move to the right child
+                node = currentCode->start == 99 ? currentCode->link[1] : currentCode->link[currentCode->start + 1] + 1;
+            }
+
+            if (node < n) {
+                // Leaf node reached, write the character to the output file
+                fputc(hfmcode[node].ch, fp2);
+                node = 2 * n - 2;  // Reset to the root of the Huffman tree
+            }
+
+            current = node;
+        }
+    }
+
+    fclose(fp1);
+    fclose(fp2);
+}
+
+//int main(int argc, char *argv[]) {
+//
 //
 //}
-
-int main(int argc, char *argv[]) {
-
-
-}

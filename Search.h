@@ -15,9 +15,9 @@
 #include <stdio.h>
 #define DataType int
 
-typedef struct ssTable{
-    DataType *data;
-    int length;
+typedef struct ssTable {
+    DataType *data;  // 指向存储元素的数组
+    int length;      // 静态表的长度
 } SSTable;
 
 //初始化
@@ -48,60 +48,61 @@ void swap(int *a, int *b) {
 
 //选择排序
 void selectSort(SSTable *ssTable) {
-    int temp = 0;
-    for (int i = 0; i < ssTable->length - 1; i++){
+    // 外层循环控制待排序序列的起始位置
+    for (int i = 0; i < ssTable->length - 1; i++) {
+        // 内层循环遍历未排序的部分，找到最小元素的索引
         for (int j = i; j < ssTable->length; j++) {
-            if (ssTable->data[i] > ssTable->data[j]) {
+            // 如果当前位置的元素比最小元素还小，更新最小元素的索引
+            if (ssTable->data[i] > ssTable->data[j])
+                swap(&ssTable->data[i], &ssTable->data[j]);
                 //交换
-                temp = ssTable->data[i];
-                ssTable->data[i] = ssTable->data[j];
-                ssTable->data[j] = temp;
-            }
         }
     }
 }
 
 //冒泡排序
 void maopaoSort(SSTable *ssTable) {
-    int temp = 0;
-    for (int i = 0; i < ssTable->length - 1; i++) { // 修正这里的循环终止条件
+    // 外层循环控制比较轮数，每轮找到一个最大元素
+    for (int i = 0; i < ssTable->length - 1; i++) {
+        // 内层循环进行相邻元素的比较和交换
         for (int j = 0; j < ssTable->length - i - 1; j++) {
-            if (ssTable->data[j] > ssTable->data[j + 1]) {
-                // 如果前一个元素大于后一个元素，交换它们
-                temp = ssTable->data[j];
-                ssTable->data[j] = ssTable->data[j + 1];
-                ssTable->data[j + 1] = temp;
-            }
+            // 如果前一个元素大于后一个元素，交换它们
+            if (ssTable->data[j] > ssTable->data[j + 1])
+                swap(&ssTable->data[j], &ssTable->data[j+1]);
         }
     }
 }
 
 //冒泡排序（沉底）
 void bubbleSort(SSTable *ssTable) {
+    // 外层循环控制比较轮数，每轮将最大元素沉底
     for (int i = 0; i < ssTable->length - 1; i++) {
-        // 每轮将最大元素沉底
+        // 内层循环进行相邻元素的比较和交换
         for (int j = 0; j < ssTable->length - i - 1; j++) {
+            // 如果前一个元素大于后一个元素，交换它们
             if (ssTable->data[j] > ssTable->data[j + 1]) {
-                // 交换元素位置
-                int temp = ssTable->data[j];
-                ssTable->data[j] = ssTable->data[j + 1];
-                ssTable->data[j + 1] = temp;
+                swap(&ssTable->data[j], &ssTable->data[j+1]);
             }
         }
     }
 }
 
 //插入排序 fixed
-void myInsertSort(SSTable *ssTable){
+void myInsertSort(SSTable *ssTable) {
     int i, j, k;
-    for(i = 1; i < ssTable->length; i++){
-        k = ssTable->data[i];
+
+    // 从第二个元素开始，依次将元素插入已排序的序列中
+    for(i = 1; i < ssTable->length; i++) {
+        k = ssTable->data[i];  // 当前待插入的元素
         j = i - 1;
+
+        // 在已排序序列中找到合适的位置插入当前元素
         while (j >= 0 && ssTable->data[j] > k) {
-            ssTable->data[j + 1] = ssTable->data[j];
+            ssTable->data[j + 1] = ssTable->data[j];  // 元素后移
             j--;
         }
-        ssTable->data[j + 1] = k;
+
+        ssTable->data[j + 1] = k;  // 将当前元素插入到正确的位置
     }
 }
 
@@ -117,22 +118,22 @@ void insertSort(SSTable *ssTable){
 }
 
 // 根据最右侧元素（pivot）将数组划分为两部分，并返回pivot的最终位置
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];  // 选择最右侧元素作为pivot
-    int i = (low - 1);  // 初始化较小元素的索引
-
-    // 遍历数组，将小于等于pivot的元素放到左侧，大于pivot的元素放到右侧
-    for (int j = low; j < high; j++) {
-        if (arr[j] <= pivot) {
-            i++;
-            swap(&arr[i], &arr[j]);
-        }
-    }
-
-    // 将pivot放到其最终位置
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-}
+//int partition(int arr[], int low, int high) {
+//    int pivot = arr[high];  // 选择最右侧元素作为pivot
+//    int i = (low - 1);  // 初始化较小元素的索引
+//
+//    // 遍历数组，将小于等于pivot的元素放到左侧，大于pivot的元素放到右侧
+//    for (int j = low; j < high; j++) {
+//        if (arr[j] <= pivot) {
+//            i++;
+//            swap(&arr[i], &arr[j]);
+//        }
+//    }
+//
+//    // 将pivot放到其最终位置
+//    swap(&arr[i + 1], &arr[high]);
+//    return (i + 1);
+//}
 
 //调整堆，使其满足最大堆性质
 void heapify(int arr[], int n, int i) {
@@ -171,6 +172,34 @@ void heapSort(SSTable *ssTable) {
     }
 }
 
+//快速排序
+void quickSort(SSTable *ssTable, int low, int high) {
+    if (low < high) {
+        int pivot = ssTable->data[low];
+        int i = low + 1;
+        int j = high;
+
+        while (i <= j) {
+            while (i <= j && ssTable->data[i] < pivot)
+                i++;
+            while (j >= i && ssTable->data[j] > pivot)
+                j--;
+
+            if (i <= j) {
+                swap(&ssTable->data[i], &ssTable->data[j]);
+                i++;
+                j--;
+            }
+        }
+
+        swap(&ssTable->data[low], &ssTable->data[j]);
+
+        // Recursively sort the sub-arrays
+        quickSort(ssTable, low, j - 1);
+        quickSort(ssTable, j + 1, high);
+    }
+}
+
 //顺序查询
 int SqSearch(SSTable *ssTable, DataType key){
     for(int i = 0; i < ssTable->length; i++){
@@ -185,16 +214,50 @@ int binSearch(SSTable *ssTable, DataType key) {
     int low = 0;
     int high = ssTable->length - 1;
 
+    // 使用二分查找算法，循环终止条件为low大于high
     while (low <= high) {
         int mid = (low + high) / 2;
+
+        // 如果中间元素等于目标元素，返回中间元素的索引
         if (ssTable->data[mid] == key) {
             return mid;
-        } else if (ssTable->data[mid] < key) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
+        }
+            // 如果中间元素小于目标元素，说明目标元素在右半部分
+        else if (ssTable->data[mid] < key) {
+            low = mid + 1;  // 更新low，缩小查找范围为右半部分
+        }
+            // 如果中间元素大于目标元素，说明目标元素在左半部分
+        else {
+            high = mid - 1;  // 更新high，缩小查找范围为左半部分
         }
     }
+
+    // 若循环结束仍未找到目标元素，返回-1表示未找到
+    return -1;
+}
+
+//插值查找
+int interpolationSearch(SSTable *ssTable, DataType key) {
+    int low = 0, high = ssTable->length - 1;
+
+    // 使用插值查找算法，循环终止条件为low小于等于high且key在查找范围内
+    while (low <= high && key >= ssTable->data[low] && key <= ssTable->data[high]) {
+        // 计算插值公式，pos表示估计的目标元素位置
+        int pos = low + ((key - ssTable->data[low]) * (high - low)) / (ssTable->data[high] - ssTable->data[low]);
+
+        // 如果估计位置的元素等于目标元素，返回估计位置
+        if (ssTable->data[pos] == key)
+            return pos;
+
+        // 如果估计位置的元素小于目标元素，说明目标元素在右半部分
+        if (ssTable->data[pos] < key)
+            low = pos + 1;  // 更新low，缩小查找范围为右半部分
+            // 如果估计位置的元素大于目标元素，说明目标元素在左半部分
+        else
+            high = pos - 1;  // 更新high，缩小查找范围为左半部分
+    }
+
+    // 若循环结束仍未找到目标元素，返回-1表示未找到
     return -1;
 }
 

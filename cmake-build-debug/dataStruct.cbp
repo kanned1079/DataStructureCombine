@@ -88,6 +88,9 @@
 		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/Graph.h">
 			<Option target="dataStruct"/>
 		</Unit>
+		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/HuffEncodeDecode.h">
+			<Option target="dataStruct"/>
+		</Unit>
 		<Unit filename="/Users/kanna/CLionProjects/DataStructureCombine/HuffmanTree.h">
 			<Option target="dataStruct"/>
 		</Unit>
