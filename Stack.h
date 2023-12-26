@@ -39,7 +39,7 @@ bool stackIsEmpty(SqStack *stack){
 
 //入棧操作
 void push_SqStack(SqStack *stack, DataType value){
-    if(stack->top - stack->base >= stack->stackSize){
+    if(stackIsFull(stack)){
         stack->base = (DataType *) realloc(stack->base, sizeof (DataType) * INCREASEMENT);
         stack->top  = stack->base + stack->stackSize;
         stack->stackSize += INCREASEMENT;
@@ -50,7 +50,7 @@ void push_SqStack(SqStack *stack, DataType value){
 
 //出棧操作
 DataType pop_SqStack(SqStack *stack) {
-    if(stack->base == stack->top){
+    if(stackIsEmpty(stack)){
         printf("Stack is Empty.\n");
         return (EXIT_FAILURE);
     }
