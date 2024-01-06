@@ -191,10 +191,8 @@ void quickSort(SSTable *ssTable, int low, int high) {
                 j--;
             }
         }
-
         swap(&ssTable->data[low], &ssTable->data[j]);
 
-        // Recursively sort the sub-arrays
         quickSort(ssTable, low, j - 1);
         quickSort(ssTable, j + 1, high);
     }

@@ -73,8 +73,8 @@ int GetGListLength(GLNode *L){
     GLNode *p;
     int length = 0;
     if(L->tag == LIST)
-    for(p = L->UNION.child; p; p = p->next)
-        length++;
+        for(p = L->UNION.child; p; p = p->next)
+            length++;
     return length;
 }
 
@@ -114,5 +114,4 @@ void FreeGList(GLNode *L) {
         free(L);
     }
 }
-
 
