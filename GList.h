@@ -97,7 +97,7 @@ void TraverseGList(GLNode *L){
     GLNode *p;
     for(p = L; p != NULL; p = p->next){
         if(p->tag == ATOM){
-            printf("%c ", p->UNION.child);
+            printf("%c ", p->UNION.atom);
         } else{
             putchar('(');
             TraverseGList(p->UNION.child);

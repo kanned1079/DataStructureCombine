@@ -69,7 +69,7 @@ DataType SqQueue_De(SqQueue *Q) {
 
 //生成杨辉三角
 void generate_YanghuiTriangle(SqQueue *Q, int line, int *result){
-    int i, j, t, elem1, elem2;
+    int i, j, elem1, elem2;
     int length = 0;
     SqQueue_En(Q, 0);
     SqQueue_En(Q, 1);

@@ -211,25 +211,20 @@ int SqSearch(SSTable *ssTable, DataType key){
 int binSearch(SSTable *ssTable, DataType key) {
     int low = 0;
     int high = ssTable->length - 1;
-
     // 使用二分查找算法，循环终止条件为low大于high
     while (low <= high) {
         int mid = (low + high) / 2;
 
         // 如果中间元素等于目标元素，返回中间元素的索引
-        if (ssTable->data[mid] == key) {
+        if (ssTable->data[mid] == key)
             return mid;
-        }
             // 如果中间元素小于目标元素，说明目标元素在右半部分
-        else if (ssTable->data[mid] < key) {
+        else if (ssTable->data[mid] < key)
             low = mid + 1;  // 更新low，缩小查找范围为右半部分
-        }
             // 如果中间元素大于目标元素，说明目标元素在左半部分
-        else {
+        else
             high = mid - 1;  // 更新high，缩小查找范围为左半部分
-        }
     }
-
     // 若循环结束仍未找到目标元素，返回-1表示未找到
     return -1;
 }

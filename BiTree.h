@@ -23,7 +23,7 @@ BiTNode * BiT_Create(char str[], int *pi){
     BiTNode *root;
     char ch;
     ch = str[*pi];
-    (*pi)++;`
+    (*pi)++;
     if(ch == '*')
         return NULL;
     root = (BiTNode *) malloc(sizeof (BiTNode));
