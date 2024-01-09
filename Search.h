@@ -175,9 +175,7 @@ void heapSort(SSTable *ssTable) {
 //快速排序
 void quickSort(SSTable *ssTable, int low, int high) {
     if (low < high) {
-        int pivot = ssTable->data[low];
-        int i = low + 1;
-        int j = high;
+        int pivot = ssTable->data[low], i = low + 1, j = high;
 
         while (i <= j) {
             while (i <= j && ssTable->data[i] < pivot)

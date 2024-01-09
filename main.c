@@ -185,6 +185,7 @@ void operate_LinkList(){
                "L1, L2合并到L3：");
         L3 = mergeTwoLinkList(L1, L2);
         traverse_Node(L3);
+        printf("L3中有%d个10\n", searchLinklistNodes(L3, 10));
     } else{
         LNode *L;
         printf("创建了一个链表\n----------------------\n");

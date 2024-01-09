@@ -13,11 +13,13 @@
 #include "stdbool.h"
 #define DataType int
 
+//链表结构定义
 typedef struct LinkList {
     DataType data;
     struct LinkList *next;
 } LNode;
 
+//链表初始化
 LNode *initial_HeadNode(){
     LNode *L;
     L = (LNode *) malloc(sizeof (LNode));
@@ -90,4 +92,12 @@ LNode *reverseLinkList(LNode *L){
         q = p->next;
     }
     return L;
+}
+
+int searchLinklistNodes(LNode *L, DataType key){
+    int nums = 0;
+    for (LNode *p = L->next; p; p = p->next)
+        if (p->data == key)
+            nums++;
+    return nums;
 }
