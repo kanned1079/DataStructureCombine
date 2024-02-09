@@ -6,7 +6,6 @@
 #define DATASTRUCT_HUFFMANTREE_H
 
 #endif //DATASTRUCT_HUFFMANTREE_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

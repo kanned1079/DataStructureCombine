@@ -47,6 +47,7 @@ void append_Node(LNode *L){
 
 //遍历单向链表
 void traverse_Node(LNode *L){
+    printf("\033[1;32mHeadNode -> \033[0m");
     LNode *p = L->next;
     while (p){
         printf("\033[1;32m%d\033[0m", p->data);
@@ -99,5 +100,13 @@ int searchLinklistNodes(LNode *L, DataType key){
     for (LNode *p = L->next; p; p = p->next)
         if (p->data == key)
             nums++;
+    return nums;
+}
+
+int countLNodeNums(LNode *L){
+    int nums = 0;
+    LNode *p = L->next;
+    while (p)
+        nums++;
     return nums;
 }
