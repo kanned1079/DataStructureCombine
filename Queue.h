@@ -48,7 +48,7 @@ bool isEmpty(SqQueue *Q) {
 void SqQueue_En(SqQueue *Q, DataType value) {
     if(isFull(Q)) {
         printf("Queue is full.\n");
-        return;
+        exit (EXIT_FAILURE);
     }
     //printf("%d", value);
     *(Q->base + Q->rear) = value;
@@ -59,6 +59,7 @@ void SqQueue_En(SqQueue *Q, DataType value) {
 DataType SqQueue_De(SqQueue *Q) {
     if (isEmpty(Q)) {
         printf("Queue is empty.\n");
+        exit (EXIT_FAILURE);
         //return;
     }
     //*Data = *(Q->base + Q->front);

@@ -52,7 +52,7 @@ void push_SqStack(SqStack *stack, DataType value){
 DataType pop_SqStack(SqStack *stack) {
     if(stackIsEmpty(stack)){
         printf("Stack is Empty.\n");
-        return (EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
     stack->top--;
     return *(stack->top);

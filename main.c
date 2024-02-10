@@ -33,7 +33,8 @@ int main(int argc, char *argv[]) {
            " │  └─合并两个顺序表\n"
            " ├──单链表 [1]\n"
            " │  ├─合并链表\n"
-           " │  └─逆序链表\n"
+           " │  ├─逆序链表\n"
+           " │  └─获取链表中的节点数\n"
            " ├──双向链表 [2]\n"
            " │  └─插入节点\n"
            " ├──棧 [3]\n"
@@ -160,45 +161,61 @@ void operate_LinkList(){
     printf("----------------------\n"
            "链表操作\n"
            " ├─合并链表 [0]\n"
-           " └─逆序链表 [1] \n");
+           " ├─逆序链表 [1] \n"
+           " └─获取链表中节点数 [2]\n");
     int choose;
     printf("\033[1;35m选择子项目：\033[0m");
     scanf("%d", &choose);
-    if(choose == 0){
-        LNode *L1, *L2, *L3;
-        printf("----------------------\n"
-               "创建了三个链表\n");
-        L1 = initial_HeadNode();
-        L2 = initial_HeadNode();
-        L2 = initial_HeadNode();
-        printf("初始化完成\n----------------------\n");
-        printf("L1插入数据：");
-        append_Node(L1);
-        printf("L2插入数据：");
-        append_Node(L2);
-        printf("----------------------\n"
-               "L1数据： ");
-        traverse_Node(L1);
-        printf("L2数据： ");
-        traverse_Node(L2);
-        printf("----------------------\n"
-               "L1, L2合并到L3：");
-        L3 = mergeTwoLinkList(L1, L2);
-        traverse_Node(L3);
-        printf("L3中有%d个10\n", searchLinklistNodes(L3, 10));
-    } else{
-        LNode *L;
-        printf("创建了一个链表\n----------------------\n");
-        L = initial_HeadNode();
-        printf("L 插入数据：");
-        append_Node(L);
-        printf("----------------------\n"
-               "L 原数据：");
-        traverse_Node(L);
-        printf("----------------------\n"
-               "L 逆序后：");
-        L = reverseLinkList(L);
-        traverse_Node(L);
+    switch (choose) {
+        case 0: {
+            LNode *L1, *L2, *L3;
+            printf("----------------------\n"
+                   "创建了三个链表\n");
+            L1 = initial_HeadNode();
+            L2 = initial_HeadNode();
+            L2 = initial_HeadNode();
+            printf("初始化完成\n----------------------\n");
+            printf("L1插入数据：");
+            append_Node(L1);
+            printf("L2插入数据：");
+            append_Node(L2);
+            printf("----------------------\n"
+                   "L1数据： ");
+            traverse_Node(L1);
+            printf("L2数据： ");
+            traverse_Node(L2);
+            printf("----------------------\n"
+                   "L1, L2合并到L3：");
+            L3 = mergeTwoLinkList(L1, L2);
+            traverse_Node(L3);
+            printf("L3中有%d个10\n", searchLinklistNodes(L3, 10));
+        }
+        case 1: {
+            LNode *L;
+            printf("创建了一个链表\n----------------------\n");
+            L = initial_HeadNode();
+            printf("L 插入数据：");
+            append_Node(L);
+            printf("----------------------\n"
+                   "L 原数据：");
+            traverse_Node(L);
+            printf("----------------------\n"
+                   "L 逆序后：");
+            L = reverseLinkList(L);
+            traverse_Node(L);
+        }
+        case 2: {
+            LNode *L;
+            printf("创建了一个链表\n----------------------\n");
+            L = initial_HeadNode();
+            printf("L 插入数据：");
+            append_Node(L);
+            printf("----------------------\n"
+                   "L 原数据：");
+            traverse_Node(L);
+            printf("----------------------\n"
+                   "L 中的节点数：%d 个\n", countLNodeNums(L));
+        }
     }
 }
 

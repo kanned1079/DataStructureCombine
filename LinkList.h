@@ -106,7 +106,9 @@ int searchLinklistNodes(LNode *L, DataType key){
 int countLNodeNums(LNode *L){
     int nums = 0;
     LNode *p = L->next;
-    while (p)
+    while (p) {
         nums++;
+        p = p->next;
+    }
     return nums;
 }
